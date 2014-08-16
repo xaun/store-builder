@@ -10,6 +10,7 @@ class CreateProducts < ActiveRecord::Migration
       t.float :weight
       t.string :url_handle
       t.boolean :visibility
+      t.integer :store_id
 
       t.timestamps
     end

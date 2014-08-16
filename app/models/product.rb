@@ -12,9 +12,14 @@
 #  weight      :float
 #  url_handle  :string(255)
 #  visibility  :boolean
+#  store_id    :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #
 
 class Product < ActiveRecord::Base
+  belongs_to :store
+  has_and_belongs_to_many :collections
+  has_many :order_products
+  has_many :orders, through: :order_products
 end

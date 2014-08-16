@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816040610) do
+ActiveRecord::Schema.define(version: 20140816121749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,27 @@ ActiveRecord::Schema.define(version: 20140816040610) do
     t.datetime "updated_at"
   end
 
+  create_table "admins_stores", id: false, force: true do |t|
+    t.integer "store_id"
+    t.integer "admin_id"
+  end
+
   create_table "collections", force: true do |t|
     t.string   "title"
-    t.string   "featured_image"
+    t.string   "feature_image"
     t.string   "description"
     t.string   "page_title"
     t.string   "meta_description"
     t.string   "url_handle"
     t.boolean  "visibility"
+    t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "collections_products", id: false, force: true do |t|
+    t.integer "product_id"
+    t.integer "collection_id"
   end
 
   create_table "order_products", force: true do |t|
@@ -48,8 +59,8 @@ ActiveRecord::Schema.define(version: 20140816040610) do
   create_table "orders", force: true do |t|
     t.integer  "user_id"
     t.integer  "store_id"
-    t.string   "payment_status"
     t.boolean  "confirmed"
+    t.string   "payment_status"
     t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -65,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140816040610) do
     t.float    "weight"
     t.string   "url_handle"
     t.boolean  "visibility"
+    t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -95,6 +107,7 @@ ActiveRecord::Schema.define(version: 20140816040610) do
     t.string   "postcode"
     t.string   "country"
     t.string   "state"
+    t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

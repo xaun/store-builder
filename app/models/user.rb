@@ -13,9 +13,12 @@
 #  postcode         :string(255)
 #  country          :string(255)
 #  state            :string(255)
+#  store_id         :integer
 #  created_at       :datetime
 #  updated_at       :datetime
 #
 
 class User < ActiveRecord::Base
+  belongs_to :store
+  has_many :orders
 end
