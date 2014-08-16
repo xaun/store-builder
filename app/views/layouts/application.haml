@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+%html{:lang => "en"}
+%head
+  %meta{:charset => "UTF-8"}/
+  %title Bang-Up!
+  = stylesheet_link_tag 'application'
+  = javascript_include_tag 'application'
+  = csrf_meta_tags
+%body
+  = yield
