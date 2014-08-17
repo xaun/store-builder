@@ -38,17 +38,16 @@ gem 'bootstrap-sass'
 
 gem 'autoprefixer-rails'
 
-group :development do
+group :test, :development do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-end
-
-group :test do
   gem 'rspec-rails'
   gem 'minitest'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password

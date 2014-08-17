@@ -11,14 +11,12 @@
 #  updated_at      :datetime
 #
 
-class Admin < ActiveRecord::Base
-  has_and_belongs_to_many :stores
-
-  has_secure_password
-  validates :email, :presence => true,  :uniqueness => true, :length => { :minimum => 6 }, :on => :create
+FactoryGirl.define do
+  factory :admin do
+    first_name { generate(:first_name) }
+    last_name { generate(:last_name) }
+    email { generate(:email) }
+    password 'chicken'
+    password_confirmation 'chicken'
+  end
 end
-
-
-
-
-
