@@ -17,3 +17,12 @@
 #  updated_at                :datetime
 #
 
+require 'rails_helper'
+
+RSpec.describe Store, :type => :model do
+  it { is_expected.to have_and_belong_to_many(:admins) }
+  it { is_expected.to have_many(:products) }
+  it { is_expected.to have_many(:collections) }
+  it { is_expected.to have_many(:orders) }
+  it { is_expected.to have_many(:users) }
+end

@@ -11,3 +11,8 @@
 #  updated_at       :datetime
 #
 
+require 'rails_helper'
+
+RSpec.describe Admin, :type => :model do
+  it { is_expected.to have_and_belong_to_many(:stores) }
+end

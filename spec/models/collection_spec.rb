@@ -15,3 +15,9 @@
 #  updated_at       :datetime
 #
 
+require 'rails_helper'
+
+RSpec.describe Collection, :type => :model do
+  it { is_expected.to belong_to(:store) }
+  it { is_expected.to have_and_belong_to_many(:products) }
+end
