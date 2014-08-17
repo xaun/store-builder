@@ -292,7 +292,7 @@
         1,
         null
       ],
-      "/Users/xaunlopez/Projects/wdi/06-advanced/bang-up/spec/models/order_products_spec.rb": [
+      "/Users/xaunlopez/Projects/wdi/06-advanced/bang-up/spec/models/order_product_spec.rb": [
         null,
         null,
         null,
@@ -312,7 +312,7 @@
         2,
         null
       ],
-      "/Users/xaunlopez/Projects/wdi/06-advanced/bang-up/app/models/order_products.rb": [
+      "/Users/xaunlopez/Projects/wdi/06-advanced/bang-up/app/models/order_product.rb": [
         null,
         null,
         null,
@@ -545,6 +545,6 @@
         null
       ]
     },
-    "timestamp": 1408243868
+    "timestamp": 1408247960
   }
 }

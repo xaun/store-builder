@@ -23,5 +23,5 @@ RSpec.describe Product, :type => :model do
   it { is_expected.to belong_to(:store) }
   it { is_expected.to have_and_belong_to_many(:collections) }
   it { is_expected.to have_many(:order_products) }
-  it { is_expected.to have_many(:orders) } # through :order_products
+  it { is_expected.to have_many(:orders) } # through :order_product
 end

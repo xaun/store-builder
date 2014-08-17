@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-17T12:51:08+10:00">2014-08-17T12:51:08+10:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-17T13:59:20+10:00">2014-08-17T13:59:20+10:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -91,7 +91,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#7f2aa0a8ab13d6de06c7d64dd2c222c667fec344" class="src_link" title="app/models/order_products.rb">app/models/order_products.rb</a></td>
+        <td class="strong"><a href="#2d71e5c29d73ecc66477b40d2d090e77498fa7c3" class="src_link" title="app/models/order_product.rb">app/models/order_product.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>16</td>
         <td>3</td>
@@ -271,7 +271,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#199c8ae2c2a2dbf25407968f241f47ee271f0072" class="src_link" title="spec/models/order_products_spec.rb">spec/models/order_products_spec.rb</a></td>
+        <td class="strong"><a href="#4764cbc0594be47abac8b8bb4bbaef5e7331c7ff" class="src_link" title="spec/models/order_product_spec.rb">spec/models/order_product_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>18</td>
         <td>4</td>
@@ -772,9 +772,9 @@
   </pre>
 </div>
       
-        <div class="source_table" id="7f2aa0a8ab13d6de06c7d64dd2c222c667fec344">
+        <div class="source_table" id="2d71e5c29d73ecc66477b40d2d090e77498fa7c3">
   <div class="header">
-    <h3>app/models/order_products.rb</h3>
+    <h3>app/models/order_product.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>3</b> relevant lines. 
@@ -861,7 +861,7 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">class OrderProducts &lt; ActiveRecord::Base</code>
+          <code class="ruby">class OrderProduct &lt; ActiveRecord::Base</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
@@ -2680,9 +2680,9 @@
   </pre>
 </div>
       
-        <div class="source_table" id="199c8ae2c2a2dbf25407968f241f47ee271f0072">
+        <div class="source_table" id="4764cbc0594be47abac8b8bb4bbaef5e7331c7ff">
   <div class="header">
-    <h3>spec/models/order_products_spec.rb</h3>
+    <h3>spec/models/order_product_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>4</b> relevant lines. 
@@ -2781,7 +2781,7 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe OrderProducts, :type =&gt; :model do</code>
+          <code class="ruby">RSpec.describe OrderProduct, :type =&gt; :model do</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="16">
@@ -2937,7 +2937,7 @@
         <li class="covered" data-hits="2" data-linenumber="20">
           <span class="hits">2</span>
           
-          <code class="ruby">  it { is_expected.to have_many(:products) } # through :order_products</code>
+          <code class="ruby">  it { is_expected.to have_many(:products) } # through :order_product</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="21">
@@ -3123,7 +3123,7 @@
         <li class="covered" data-hits="2" data-linenumber="26">
           <span class="hits">2</span>
           
-          <code class="ruby">  it { is_expected.to have_many(:orders) } # through :order_products</code>
+          <code class="ruby">  it { is_expected.to have_many(:orders) } # through :order_product</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
