@@ -80,7 +80,7 @@ RSpec.describe Admin, :type => :model do
     end
 
     context 'when a first name is blank' do
-      it { expect(FactoryGirl.build(:admin, :first_name => '')).to be_invalid  }
+      it { expect(FactoryGirl.build(:admin, :first_name => '')).to be_valid  }
     end
 
     context 'when a first name is too short' do
@@ -98,7 +98,7 @@ RSpec.describe Admin, :type => :model do
     end
 
     context 'when a last name is blank' do
-      it { expect(FactoryGirl.build(:admin, :last_name => '')).to be_invalid }
+      it { expect(FactoryGirl.build(:admin, :last_name => '')).to be_valid }
     end
 
     context 'when a last name is too short' do

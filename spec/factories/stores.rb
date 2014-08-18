@@ -17,18 +17,8 @@
 #  updated_at                :datetime
 #
 
-class Store < ActiveRecord::Base
-  has_and_belongs_to_many :admins
-  has_many :products
-  has_many :collections
-  has_many :orders
-  has_many :users
-
-  validates :store_name, :presence => true, :uniqueness => true, :length => { :minimum => 2 }, :on => :create
+FactoryGirl.define do
+  factory :store do
+    store_name { generate(:store_name) }
+  end
 end
-
-
-
-
-
-

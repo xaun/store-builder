@@ -8,4 +8,7 @@ FactoryGirl.define do
   sequence :email do |n|
     "user#{n}@example.com"
   end
+  sequence :store_name do |n|
+    "store#{n}"
+  end
 end
