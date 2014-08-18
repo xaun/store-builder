@@ -16,7 +16,7 @@ FactoryGirl.define do
     first_name { generate(:first_name) }
     last_name { generate(:last_name) }
     email { generate(:email) }
-    password 'chicken'
-    password_confirmation 'chicken'
+    password 'Chicken1'
+    password_confirmation 'Chicken1'
   end
 end
