@@ -18,9 +18,9 @@ class Admin < ActiveRecord::Base
   has_secure_password
   validates :email, :presence => true,  :uniqueness => true, :length => { :minimum => 6 }, :on => :create
   validates_format_of :email, :with => EmailRegex
-  validates :first_name, :length => { :minimum => 2 }, :allow_blank => true
-  validates :last_name, :length => { :minimum => 2 }, :allow_blank => true
-  validates :password, :length => { in: 6..20 }, :confirmation => true, :format => {:with => /(?=.*[A-Z])(?=.*[\d])/}
+  # validates :first_name, :length => { :minimum => 2 }, :allow_blank => true
+  # validates :last_name, :length => { :minimum => 2 }, :allow_blank => true
+  validates :password, :length => { in: 6..20 }, :confirmation => true, :format => {:with => /(?=.*[A-Z])(?=.*[\d])/}, :on => :create
 end
 
 

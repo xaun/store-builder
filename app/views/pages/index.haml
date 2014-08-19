@@ -1,1 +1,19 @@
-%h1 hello world
+%h1 Bang-Up!
+.errors
+  - if @admin
+    - if @admin.errors.any?
+      = @admin.errors.full_messages.to_sentence
+  - if @store
+    - if @store.errors.any?
+      = @store.errors.full_messages
+
+#topbar
+  = link_to('login', login_path)
+
+#step-1
+  = form_tag '/' do
+    = text_field_tag "store[store_name]", nil, :placeholder => 'Store Name'
+    = text_field_tag "admin[email]", nil, :placeholder => 'Email'
+    = password_field_tag "admin[password]", nil, :placeholder => 'Password'
+    = password_field_tag "admin[password_confirmation]", nil, :placeholder => 'Confirm Password'
+    = submit_tag

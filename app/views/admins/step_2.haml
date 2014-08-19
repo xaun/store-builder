@@ -1,0 +1,29 @@
+%h2 Add your seller details
+
+.errors
+  - if @admin
+    - if @admin.errors.any?
+      = @admin.errors.full_messages.to_sentence
+  - if @store
+    - if @store.errors.any?
+      = @store.errors.full_messages
+
+#step-2
+  = form_tag '/admin/account_setup' do
+    %p First Name
+    = text_field_tag "admin[first_name]"
+    %p Last Name
+    = text_field_tag "admin[last_name]"
+    %p Address
+    = text_field_tag "store[street]"
+    %p City
+    = text_field_tag "store[city]"
+    %p State
+    = select_tag "store[state]", "<option>ACT</option><option>NSW</option><option>NT</option><option>QLD</option><option>SA</option><option>TAS</option><option>VIC</option><option>WA</option>".html_safe, include_blank: true
+    %p Postcode
+    = text_field_tag "store[postcode]"
+    %p Country
+    = text_field_tag "store[country]"
+    %p Phone Number
+    = text_field_tag "store[phone_number]"
+    = submit_tag

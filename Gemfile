@@ -48,6 +48,7 @@ group :test, :development do
   gem 'simplecov'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'capybara'
 end
 
 # Use ActiveModel has_secure_password

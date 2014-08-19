@@ -70,41 +70,6 @@ RSpec.describe Admin, :type => :model do
     end
   end
 
-  # -- first name
-  describe 'first_name field' do
-    # -- existence
-    it 'should have a first name' do
-      admin = FactoryGirl.create(:admin)
-      admin_first_name = admin.first_name
-      expect(admin.first_name).to eq admin_first_name
-    end
-
-    context 'when a first name is blank' do
-      it { expect(FactoryGirl.build(:admin, :first_name => '')).to be_valid  }
-    end
-
-    context 'when a first name is too short' do
-      it { expect(FactoryGirl.build(:admin, :first_name => 'x')).to be_invalid }
-    end
-  end
-
-  # -- last name
-  describe 'last_name field' do
-    # -- existence
-    it 'should have a last name' do
-      admin = FactoryGirl.create(:admin)
-      admin_last_name = admin.last_name
-      expect(admin.last_name).to eq admin_last_name
-    end
-
-    context 'when a last name is blank' do
-      it { expect(FactoryGirl.build(:admin, :last_name => '')).to be_valid }
-    end
-
-    context 'when a last name is too short' do
-      it { expect(FactoryGirl.build(:admin, :last_name => 'l')).to be_invalid }
-    end
-  end
 
   # -- password
   describe 'password field' do
@@ -126,6 +91,7 @@ RSpec.describe Admin, :type => :model do
         expect(@admin).to be_valid
       end
     end
+
 
     context 'when password is less than 6 or more than 20 characters' do
       it 'should be invalid' do
@@ -150,4 +116,43 @@ RSpec.describe Admin, :type => :model do
       it { expect(FactoryGirl.build(:admin, :password => 'rooster',:password_confirmation => 'chicken')).to be_invalid }
     end
   end
+
+
+  # # -- first name
+  # describe 'first_name field' do
+  #   # -- existence
+  #   it 'should have a first name' do
+  #     admin = FactoryGirl.create(:admin)
+  #     admin_first_name = admin.first_name
+  #     expect(admin.first_name).to eq admin_first_name
+  #   end
+
+  #   context 'when a first name is blank' do
+  #     it { expect(FactoryGirl.build(:admin, :first_name => '')).to be_valid  }
+  #   end
+
+  #   context 'when a first name is too short' do
+  #     it { expect(FactoryGirl.build(:admin, :first_name => 'x')).to be_invalid }
+  #   end
+  # end
+
+
+  # # -- last name
+  # describe 'last_name field' do
+  #   # -- existence
+  #   it 'should have a last name' do
+  #     admin = FactoryGirl.create(:admin)
+  #     admin_last_name = admin.last_name
+  #     expect(admin.last_name).to eq admin_last_name
+  #   end
+
+  #   context 'when a last name is blank' do
+  #     it { expect(FactoryGirl.build(:admin, :last_name => '')).to be_valid }
+  #   end
+
+  #   context 'when a last name is too short' do
+  #     it { expect(FactoryGirl.build(:admin, :last_name => 'l')).to be_invalid }
+  #   end
+  # end
+
 end

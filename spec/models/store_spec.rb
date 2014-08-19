@@ -53,6 +53,8 @@ RSpec.describe Store, :type => :model do
       end
     end
   end
+
+  # --
 end
 
 
