@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#logout'
 
   # multi-step sign-up routes
-  post '/' => 'admins#step_1'
-  get '/admin/account_setup' => 'admins#step_2'
-  post '/admin/account_setup' => 'admins#step_3'
+  post '/' => 'admins#account_create'
+  get '/admin/account_setup' => 'admins#account_setup'
+  post '/admin/account_setup' => 'admins#account_complete'
 
-  # store admin routes
-  get '/admin' => 'dashboards#index'
+  # store management routes
+  get '/admin' => 'admins#dashboard'
 
 end

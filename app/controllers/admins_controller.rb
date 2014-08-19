@@ -1,7 +1,11 @@
 class AdminsController < ApplicationController
 
-  def step_1
-    # Instantiating both Admin & Store with params from pages#index.
+
+  # - Creating a Bang-Up store - #
+  #
+  # pages#index sign-up form gets sent to account_create.
+  def account_create
+    # instantiating both a new Admin & Store with params from pages#index sign-up form.
     @store = Store.new store_params
     @admin = Admin.new admin_params
 
@@ -16,16 +20,23 @@ class AdminsController < ApplicationController
     end
   end
 
-  def step_2
+  # view contains more detailed account_setup form.
+  def account_setup
   end
 
-  def step_3
+  # update the account & store with details sent from account_setup.
+  def account_complete
     @admin = Admin.find(session[:admin_id])
     if @admin.update(admin_params) && @admin.stores.first.update(store_params)
       redirect_to admin_path
     else
-      render :step_2
+      render :account_setup
     end
+  end
+
+  # Home page for a signed in admin.
+  def dashboard
+    @admin = Admin.find(session[:admin_id])
   end
 
 
