@@ -8,14 +8,16 @@
   = csrf_meta_tags
 %body
   #main-container
+  - if session[:admin_id]
     #sidebar
       %p Dashboard
       %p Orders
       %p Customers
-      %p Products
+      %p
+        = link_to('Products', admin_products_path)
       %p Collections
       %p Settings
       %p
         = link_to('Logout', logout_path, :data => {:method => :delete})
-    #yield
-      = yield
+  #yield
+    = yield

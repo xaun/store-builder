@@ -22,9 +22,13 @@ class AdminsController < ApplicationController
 
   # view contains more detailed account_setup form.
   def account_setup
+    authenticate_admin
+    if @current_admin == nil
+      redirect_to root_path
+    end
   end
 
-  # update the account & store with details sent from account_setup.
+  # update the account & store with params sent from account_setup form.
   def account_complete
     @admin = Admin.find(session[:admin_id])
     if @admin.update(admin_params) && @admin.stores.first.update(store_params)
@@ -36,7 +40,12 @@ class AdminsController < ApplicationController
 
   # Home page for a signed in admin.
   def dashboard
-    @admin = Admin.find(session[:admin_id])
+    # makes sure session is an admin account
+    begin
+      @admin = Admin.find(session[:admin_id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path
+    end
   end
 
 

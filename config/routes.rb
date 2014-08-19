@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get '/admin/account_setup' => 'admins#account_setup'
   post '/admin/account_setup' => 'admins#account_complete'
 
-  # store management routes
+  # - store management routes - #
   get '/admin' => 'admins#dashboard'
+
+  # products
+  get '/admin/products' => 'products#index'
 
 end
