@@ -16,5 +16,11 @@ Rails.application.routes.draw do
 
   # products
   get '/admin/products' => 'products#index'
+  get '/admin/products/new' => 'products#new'
+  post '/admin/products' => 'products#create'
+  get '/admin/products/:id/edit' => 'products#edit'
+  post '/admin/products/:id' => 'products#show'
+  put '/admin/products/:id' => 'products#update'
+  delete '/admin/products/:id' => 'products#destroy'
 
 end

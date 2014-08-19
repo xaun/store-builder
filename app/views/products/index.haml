@@ -1,4 +1,12 @@
 - @products.each do |product|
   %ul
     %li
-      = product.title
+      = image_tag product.image, :class => 'images'
+      = link_to product.title, '#'
+      = product.product_type
+      = product.sku
+      = "$#{product.price}"
+      = product.quantity
+      = product.visibility
+
+= link_to('Add product', admin_products_new_path)

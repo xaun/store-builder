@@ -4,10 +4,11 @@ class CreateProducts < ActiveRecord::Migration
       t.string :title
       t.string :image
       t.string :description
-      t.string :type
+      t.string :product_type
       t.float :price
-      t.integer :sku
+      t.string :sku
       t.float :weight
+      t.integer :quantity
       t.string :url_handle
       t.boolean :visibility
       t.integer :store_id

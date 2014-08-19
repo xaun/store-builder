@@ -1,0 +1,7 @@
+/ = form_for @products do |f|
+/   = f.label :title
+/   = f.text_field :title
+/   = f.label :image
+/   = f.url_field :image
+= form_tag '/admin/products' do
+  = text_field_tag 'products[:title]'
