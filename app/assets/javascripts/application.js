@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require underscore
 //= require handlebars
+//= require jquery-tablesorter
 //= require bootstrap-sprockets
 //= require_tree .

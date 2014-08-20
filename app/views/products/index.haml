@@ -1,4 +1,6 @@
-%table.table
+.topbar
+  %p Products
+%table.tablesorter-default#products-show
   %thead
     %tr
       %th Image
@@ -8,19 +10,19 @@
       %th Quantity
       %th Store
       %th Visibility
+  %tbody#tablesort
   - @stores.each do |store|
     - store.products.each do |product|
-      %tbody
-        %tr.table-striped
-          %td= image_tag product.image, :class => 'images-list'
-          %td= link_to product.title, admin_product_path(product)
-          %td= product.product_type
-          %td= "$#{product.price}"
-          %td= product.quantity
-          %td= store.store_name
-          - if product.visibility == true
-            %td Visible
-          - else
-            %td Hidden
+      %tr
+        %td= image_tag product.image, :class => 'images-list'
+        %td= link_to product.title, admin_product_path(product)
+        %td= product.product_type
+        %td= "$#{product.price}"
+        %td= product.quantity
+        %td= store.store_name
+        - if product.visibility == true
+          %td Visible
+        - else
+          %td Hidden
 
 = link_to('Add product', admin_products_new_path)

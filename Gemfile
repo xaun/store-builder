@@ -38,6 +38,8 @@ gem 'bootstrap-sass'
 
 gem 'autoprefixer-rails'
 
+gem 'jquery-tablesorter'
+
 group :test, :development do
   gem 'pry-rails'
   gem 'better_errors'

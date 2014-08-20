@@ -1,24 +1,53 @@
-#product-image-column
-  = image_tag @product.image, :class => 'images-large'
+.topbar
+  %p= "Products / #{@product.title}"
+.view-container
+  #product-image-column
+    = image_tag @product.image, :class => 'images-large'
 
-%ul
-  %li= "#{@product.title}"
-  %li= "#{@product.description}"
-  %li= "#{@product.product_type}"
-  %li= "$#{@product.price}"
-  %li= "#{@product.store.store_name}"
-  %li= "#{@product.sku}"
-  %li= "#{@product.weight}kg"
-  %li= "#{@product.quantity}"
-  %li= "#{@product.url_handle}"
-  - if @product.visibility == true
-    %li Visible
-  - else
-    %li Hidden
+  #product-content
+    %table.table
+      %thead
+        %tr
+          %th{:colspan => 2}= @product.store.store_name
+      %tbody.table-striped
+        %tr
+          %td
+            %span Title
+          %td= "#{@product.title}"
+        %tr
+          %td
+            %span Type
+          %td= "#{@product.product_type}"
+        %tr
+          %td
+            %span Price
+          %td= "$#{@product.price}"
+        %tr
+          %td
+            %span Quantity
+          %td= "#{@product.quantity}"
+        %tr
+          %td
+            %span SKU
+          %td= "#{@product.sku}"
+        %tr
+          %td
+            %span Weight
+          %td= "#{@product.weight}kg"
+        %tr
+          %td
+            %span URL Handle
+          %td= "#{@product.url_handle}"
+        %tr
+          %td
+            %span Visibility
+          - if @product.visibility == true
+            %td Visible
+          - else
+            %td Hidden
 
-
-= link_to('Delete', admin_product_delete_path(@product), :data => { :method => :delete })
-= link_to('Edit', admin_products_edit_path)
+    = link_to('Delete', admin_product_delete_path(@product), :data => { :method => :delete })
+    = link_to('Edit', admin_products_edit_path)
 
 
 

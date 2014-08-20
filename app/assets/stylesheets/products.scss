@@ -1,18 +1,43 @@
 .images-list {
-  width: 59px;
-  height: 42px;
+  width: 64px;
+  height: 47px;
 }
 
 .images-large {
   width: 450px;
 }
 
-.table {
-  tbody {
-    border-top: 0px solid #dddddd !important;
+#product-image-column {
+  position: fixed;
+  width: 450px;
+  height: 100%;
+}
+
+#product-content {
+  margin-left: 450px;
+  margin-right: 20px;
+  padding-left: 20px;
+
+  span {
+    font-weight: bold;
   }
+}
+
+.btn {
+    margin-top: 10px !important;
+}
+
+#products-show {
+
+  .tablesorter-default td {
+    padding: 15px !important;
+  }
+
   td {
-    vertical-align: 0 !important;
-    padding: 5px !important;
+    font-size: 1.5em;
+  }
+
+  tr th {
+    font-size: 1.6em !important;
   }
 }
