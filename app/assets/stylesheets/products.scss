@@ -1,3 +1,18 @@
-.images {
-  width: 50px;
+.images-list {
+  width: 59px;
+  height: 42px;
+}
+
+.images-large {
+  width: 450px;
+}
+
+.table {
+  tbody {
+    border-top: 0px solid #dddddd !important;
+  }
+  td {
+    vertical-align: 0 !important;
+    padding: 5px !important;
+  }
 }

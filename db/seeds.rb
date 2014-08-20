@@ -4,15 +4,28 @@ Product.destroy_all
 
 
 a1 = Admin.create(:first_name => 'Xaun', :last_name => 'Lopez', :email => 'xaun@mail.com', :password => 'Chicken1', :password_confirmation => 'Chicken1')
+a2 = Admin.create(:first_name => 'Inspector', :last_name => 'Gadget', :email => 'inspector@mail.com', :password => 'Chicken1', :password_confirmation => 'Chicken1')
 
 s1 = Store.create(:store_name => 'Heaps Of Nikes')
+s2 = Store.create(:store_name => 'Illegal Stuff')
 
-p1 = Product.create(:title => 'maxie01', :product_type => 'Shoe', :sku => 'X0001', :quantity => 30, :image => 'maxies01.jpg', :price => '100.00', :visibility => true)
-p2 = Product.create(:title => 'maxie02', :product_type => 'Shoe', :sku => 'X0002', :quantity => 30, :image => 'maxies02.jpg', :price => '100.00', :visibility => true)
-p3 = Product.create(:title => 'maxie03', :product_type => 'Shoe', :sku => 'X0003', :quantity => 30, :image => 'maxies03.jpg', :price => '100.00', :visibility => true)
-p4 = Product.create(:title => 'maxie04', :product_type => 'Shoe', :sku => 'X0004', :quantity => 30, :image => 'maxies04.jpg', :price => '100.00', :visibility => true)
-p5 = Product.create(:title => 'maxie05', :product_type => 'Shoe', :sku => 'X0005', :quantity => 30, :image => 'maxies05.jpg', :price => '100.00', :visibility => true)
-p6 = Product.create(:title => 'maxie06', :product_type => 'Shoe', :sku => 'X0006', :quantity => 30, :image => 'maxies06.jpeg', :price => '100.00', :visibility => true)
+p1 = Product.create(:title => 'maxie01', :product_type => 'Shoe', :sku => 'X0001', :quantity => 30, :image => 'maxies01.jpg', :price => 100.00, :visibility => true)
+p2 = Product.create(:title => 'maxie02', :product_type => 'Shoe', :sku => 'X0002', :quantity => 30, :image => 'maxies02.jpg', :price => 100.00, :visibility => true)
+p3 = Product.create(:title => 'maxie03', :product_type => 'Shoe', :sku => 'X0003', :quantity => 30, :image => 'maxies03.jpg', :price => 100.00, :visibility => true)
+p4 = Product.create(:title => 'maxie04', :product_type => 'Shoe', :sku => 'X0004', :quantity => 30, :image => 'maxies04.jpg', :price => 100.00, :visibility => true)
+p5 = Product.create(:title => 'maxie05', :product_type => 'Shoe', :sku => 'X0005', :quantity => 30, :image => 'maxies05.jpg', :price => 100.00, :visibility => true)
+p6 = Product.create(:title => 'maxie06', :product_type => 'Shoe', :sku => 'X0006', :quantity => 30, :image => 'maxies06.jpeg', :price => 100.00, :visibility => true)
 
+p7 = Product.create(:title => 'Balaclava', :product_type => 'Disguise', :sku =>'SUS01', :quantity => 100, :image => 'balaclava.jpg', :price => 50, :visibility => true)
+p8 = Product.create(:title => 'Revolver', :product_type => 'Weapons', :sku => 'SUS02', :quantity => 5, :image => 'revolver.jpg', :price => 1500, :visibility => true)
+p9 = Product.create(:title => 'Moustache', :product_type => 'Disguise', :sku => 'SUS03', :quantity => 2000, :image => 'moustache.jpg', :price => 12.50, :visibility => true)
+p10 = Product.create(:title => 'Shank', :product_type => 'Weapons', :sku => 'SUS04', :quantity => 1, :image => 'godfather.jpg', :price => 7000, :visibility => true)
+
+# xaun << heaps of nikes
+# inspector << heaps of nikes << illigal stuff
 a1.stores << s1
+a2.stores << s1 << s2
 s1.products << p1 << p2 << p3 << p4 << p5 << p6
+s2.products << p7 << p8 << p9 << p10
+
+

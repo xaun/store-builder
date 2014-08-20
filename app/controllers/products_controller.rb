@@ -6,28 +6,39 @@ class ProductsController < ApplicationController
     if @current_admin == nil || @current_admin.empty?
       redirect_to root_path
     else
-      @products = @current_admin[0].stores.first.products
+      @stores = @current_admin[0].stores
     end
   end
 
   def new
     @products = Product.new
+    @stores_array = @current_admin[0].stores.map { |store| [store.store_name, store.id] }
   end
 
   def create
-    # code for products/new..
+    product = Product.create product_params
+    redirect_to '/admin/products'
   end
 
   def show
+    @product = Product.find params[:id]
   end
 
   def edit
+    @product = Product.find params[:id]
+    @stores_array = @current_admin[0].stores.map { |store| [store.store_name, store.id] }
   end
 
   def update
+    product = Product.find params[:id]
+    product.update (product_params)
+    redirect_to '/admin/products'
   end
 
   def destroy
+    product = Product.find params[:id]
+    product.destroy
+    redirect_to '/admin/products'
   end
 
   private

@@ -18,9 +18,12 @@ Rails.application.routes.draw do
   get '/admin/products' => 'products#index'
   get '/admin/products/new' => 'products#new'
   post '/admin/products' => 'products#create'
-  get '/admin/products/:id/edit' => 'products#edit'
-  post '/admin/products/:id' => 'products#show'
+  get '/admin/products/:id/edit' => 'products#edit', :as => :admin_products_edit
+  get '/admin/products/:id' => 'products#show', :as => :admin_product
   put '/admin/products/:id' => 'products#update'
-  delete '/admin/products/:id' => 'products#destroy'
+  delete '/admin/products/:id' => 'products#destroy', :as => :admin_product_delete
+
+  #stores
+  get '/stores/:id' => 'stores#show', :as => :store
 
 end

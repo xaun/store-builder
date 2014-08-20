@@ -1,0 +1,26 @@
+%h2 Edit a product
+
+#edit-products-form
+  = form_tag("/admin/products/#{@product.id}", method: :put) do
+    = label_tag 'Title'
+    = text_field_tag 'product[title]', "#{@product.title}"
+    = label_tag 'Image URL'
+    = url_field_tag 'product[image]', "#{@product.image}"
+    = label_tag 'Description'
+    = text_field_tag 'product[description]', "#{@product.description}"
+    = label_tag 'Type'
+    = text_field_tag 'product[product_type]', "#{@product.product_type}"
+    = label_tag 'Price'
+    = text_field_tag 'product[price]', "#{@product.price}"
+    = label_tag 'SKU'
+    = text_field_tag 'product[sku]', "#{@product.sku}"
+    = label_tag 'Weight'
+    = text_field_tag 'product[weight]', "#{@product.weight}"
+    = label_tag 'Quantity'
+    = text_field_tag 'product[quantity]', "#{@product.quantity}"
+    = label_tag 'URL Handle'
+    = text_field_tag 'product[url_handle]', "#{@product.url_handle}"
+    = select_tag('product[visibility]', options_for_select([['Show', true], ['Hide', false]]))
+    = select_tag("product[store_id]", options_for_select(@stores_array))
+    = submit_tag
+

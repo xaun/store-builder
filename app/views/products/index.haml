@@ -1,12 +1,26 @@
-- @products.each do |product|
-  %ul
-    %li
-      = image_tag product.image, :class => 'images'
-      = link_to product.title, '#'
-      = product.product_type
-      = product.sku
-      = "$#{product.price}"
-      = product.quantity
-      = product.visibility
+%table.table
+  %thead
+    %tr
+      %th Image
+      %th Name
+      %th Type
+      %th Price
+      %th Quantity
+      %th Store
+      %th Visibility
+  - @stores.each do |store|
+    - store.products.each do |product|
+      %tbody
+        %tr.table-striped
+          %td= image_tag product.image, :class => 'images-list'
+          %td= link_to product.title, admin_product_path(product)
+          %td= product.product_type
+          %td= "$#{product.price}"
+          %td= product.quantity
+          %td= store.store_name
+          - if product.visibility == true
+            %td Visible
+          - else
+            %td Hidden
 
 = link_to('Add product', admin_products_new_path)
