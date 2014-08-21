@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # - store management routes - #
   get '/admin' => 'admins#dashboard'
+  post '/admin' => 'admins#dashboard'
 
   # products
   get '/admin/products' => 'products#index'
@@ -25,6 +26,6 @@ Rails.application.routes.draw do
 
   #stores
   post '/stores' => 'stores#select'
-  get '/stores/:id' => 'stores#show', :as => :store
+  get '/stores/:id' => 'stores#home', :as => :store
 
 end

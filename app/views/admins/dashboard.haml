@@ -2,8 +2,45 @@
   %p Dashboard
 
 #dashboard-container
-  = form_tag "/stores" do
+  = form_tag "/admin", :id => 'dash-store-select' do
     = select_tag("store[store_id]", options_for_select(@stores_array), :class => 'form-control')
-    = submit_tag 'View your website', :class => 'btn btn-primary'
+    / this submit_tag is hidden with css
+    = submit_tag 'submit', :class => 'btn btn-primary', :id => 'btn'
+
+  #product-stats
+    %table.table
+      %thead
+        %tr
+          %th{:colspan => 2} Product Statistics
+      %tbody
+        %tr
+          %td
+            %span Total Listings
+          %td= @selected_store_products.count
+        %tr
+          %td
+            %span Hidden items
+          %td= @hidden_items_array.count
+        %tr
+          %td
+            %span Highest Priced Item
+          %td= "$#{@price_array.max}"
+        %tr
+          %td
+            %span Total Inventory
+          %td= "#{@inventory_array.sum} items"
+        %tr
+          %td
+            %span Gross Income
+          %td= "$#{@gross_income}"
+
+  #staff-stores-stats
+    %table.table
+      %thead
+        %tr
+          %th{:colspan => 2} Staff
+      %tbody
+        %tr
+
 
 

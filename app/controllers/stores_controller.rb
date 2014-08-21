@@ -7,7 +7,7 @@ class StoresController < ApplicationController
     redirect_to "/stores/#{@store.id}"
   end
 
-  def show
+  def home
     # raise 'Congratulations, you made it'
     @store = Store.find params[:id]
   end

@@ -38,6 +38,10 @@ class AdminsController < ApplicationController
     end
   end
 
+
+
+  # - Managing a Bang-Up store - #
+  #
   # Home page for a signed in admin.
   def dashboard
     # makes sure session is an admin account
@@ -46,9 +50,47 @@ class AdminsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path
     end
+    # Array of stores owned by session_admin
     @stores_array = @admin.stores.map { |store| [store.store_name, store.id] }
 
-    # raise 'test'
+    @products = Product.all
+
+    # store_id from store select input
+    @store_id = params[:store][:store_id]
+
+    @selected_store = Store.find(@store_id)
+
+    @selected_store_products = @selected_store.products
+
+    @price_array = []
+    @hidden_items_array = []
+    @inventory_array = []
+    @gross_array = []
+
+
+    @selected_store.products.each do |product|
+
+      sum = product.quantity * product.price
+
+      @gross_array << sum
+      @price_array << product.price
+      @inventory_array << product.quantity
+
+      if product.visibility == false
+        @hidden_items_array << product
+      end
+    end
+
+    @gross_array.inject do |sum, x|
+      @gross_income = sum + x
+    end
+
+
+    @selected_store.admins.each do |admin|
+
+
+    binding.pry
+
   end
 
 

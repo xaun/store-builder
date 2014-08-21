@@ -1,6 +1,25 @@
 #dashboard-container {
   position: relative;
 
-  #view-store {
+  #btn {
+    // display: none;
+  }
+
+  div#product-stats {
+    display: inline-block;
+    width: 47%;
+    height: 300px;
+    margin-right: 2%;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  div#staff-stores-stats {
+    display: inline-block;
+    width: 47%;
+    height: 300px;
+    margin-left: 2%;
+    border-radius: 5px;
   }
 }
