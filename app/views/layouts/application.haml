@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 %html{:lang => "en"}
-%head
-  %meta{:charset => "UTF-8"}/
-  %title Bang-Up!
-  = stylesheet_link_tag 'application'
-  = javascript_include_tag 'application'
-  = csrf_meta_tags
-%body
-  #main-container
-  - if session[:admin_id]
-    #sidebar
-      %li= link_to('Dashboard', admin_path)
-      %li= link_to('Orders', '#')
-      %li= link_to('Customers', '#')
-      %li= link_to('Products', admin_products_path)
-      %li= link_to('Collections', '#')
-      %li= link_to('Setting', '#')
-      %li= link_to('Logout', logout_path, :data => {:method => :delete})
-  #yield
-    = yield
+  %head
+    %meta{:charset => "UTF-8"}/
+    %title Bang-Up!
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body{:class => @sidebar_reveal}
+    #main-container
+      - if @sidebar_reveal
+        #sidebar
+          %li= link_to('Dashboard', admin_path)
+          %li= link_to('Orders', '#')
+          %li= link_to('Customers', '#')
+          %li= link_to('Products', admin_products_path)
+          %li= link_to('Collections', '#')
+          %li= link_to('Setting', '#')
+          %li= link_to('Logout', logout_path, :data => {:method => :delete})
+      #yield{:class => @sidebar_reveal}
+        = yield
+      }
+      }
+

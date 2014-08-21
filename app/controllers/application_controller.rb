@@ -4,8 +4,23 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_admin
+  before_action :reveal_sidebar
+
 
   private
+  # This is amazing.
+  def reveal_sidebar
+    if session[:admin_id] &&
+       params[:controller] != 'stores' &&
+       params[:controller] != 'pages' &&
+       params[:action] != 'account_setup' &&
+       params[:controller] != 'sessions'
+       @sidebar_reveal = 'sidebar'
+     else
+      @sidebar_reveal = false
+    end
+  end
+
   def authenticate_admin
     if session[:admin_id].present?
       @current_admin = Admin.where(:id => session[:admin_id])

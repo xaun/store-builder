@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20140816121749) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.string   "image"
-    t.string   "description"
+    t.text     "description"
     t.string   "product_type"
     t.float    "price"
     t.string   "sku"

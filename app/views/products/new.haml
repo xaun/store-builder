@@ -1,25 +1,27 @@
 %h2 Add a product
 
 #new-products-form
-  = form_tag '/admin/products' do
+  = form_tag '/admin/products', :class => 'form-horizontal' do
     = label_tag 'Title'
-    = text_field_tag 'product[title]'
+    = text_field_tag 'product[title]', nil, :class => 'form-control'
     = label_tag 'Image URL'
-    = url_field_tag 'product[image]'
+    = url_field_tag 'product[image]', nil, :class => 'form-control'
     = label_tag 'Description'
-    = text_field_tag 'product[description]'
+    = text_field_tag 'product[description]', nil, :class => 'form-control'
     = label_tag 'Type'
-    = text_field_tag 'product[product_type]'
+    = text_field_tag 'product[product_type]', nil, :class => 'form-control'
     = label_tag 'Price'
-    = text_field_tag 'product[price]'
+    = text_field_tag 'product[price]', nil, :class => 'form-control'
     = label_tag 'SKU'
-    = text_field_tag 'product[sku]'
+    = text_field_tag 'product[sku]', nil, :class => 'form-control'
     = label_tag 'Weight'
-    = text_field_tag 'product[weight]'
+    = text_field_tag 'product[weight]', nil, :class => 'form-control'
     = label_tag 'Quantity'
-    = text_field_tag 'product[quantity]'
+    = text_field_tag 'product[quantity]', nil, :class => 'form-control'
     = label_tag 'URL Handle'
-    = text_field_tag 'product[url_handle]'
-    = select_tag('product[visibility]', options_for_select([['Show', true], ['Hide', false]]))
-    = select_tag("product[store_id]", options_for_select(@stores_array))
-    = submit_tag
+    = text_field_tag 'product[url_handle]', nil, :class => 'form-control'
+    = label_tag 'Visibility'
+    = select_tag('product[visibility]', options_for_select([['Show', true], ['Hide', false]]), :class => 'form-control')
+    = label_tag 'Store'
+    = select_tag("product[store_id]", options_for_select(@stores_array), :class => 'form-control')
+    = submit_tag nil, class: 'btn btn-success btn-block', id: 'new-submit'

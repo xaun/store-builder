@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  title        :string(255)
 #  image        :string(255)
-#  description  :string(255)
+#  description  :text
 #  product_type :string(255)
 #  price        :float
 #  sku          :string(255)

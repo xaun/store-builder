@@ -11,6 +11,10 @@
   position: fixed;
   width: 450px;
   height: 100%;
+
+  p {
+    padding: 10px;
+  }
 }
 
 #product-content {
@@ -39,5 +43,12 @@
 
   tr th {
     font-size: 1.6em !important;
+  }
+}
+
+.form-horizontal {
+  label {
+    margin-bottom: 0;
+    margin-top: 4px;
   }
 }

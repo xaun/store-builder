@@ -3,6 +3,7 @@
 .view-container
   #product-image-column
     = image_tag @product.image, :class => 'images-large'
+    %p= @product.description
 
   #product-content
     %table.table
