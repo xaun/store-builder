@@ -3,7 +3,7 @@
 
 #dashboard-container
   = form_tag "/admin", :id => 'dash-store-select' do
-    = select_tag("store[store_id]", options_for_select(@stores_array), :class => 'form-control')
+    = select_tag("store[store_id]", options_for_select(@stores_array, @store_id), :class => 'form-control')
     / this submit_tag is hidden with css
     = submit_tag 'submit', :class => 'btn btn-primary', :id => 'btn'
 
@@ -36,11 +36,16 @@
 
   #staff-stores-stats
     %table.table
-      %thead
+      %thead{:colspan => 2}
         %tr
-          %th{:colspan => 2} Staff
+          %th Staff
       %tbody
-        %tr
+        - @staff_members.each do |staff|
+          %tr
+            %td= staff
+
+
+
 
 
 

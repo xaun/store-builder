@@ -55,12 +55,18 @@ class AdminsController < ApplicationController
 
     @products = Product.all
 
-    # store_id from store select input
-    @store_id = params[:store][:store_id]
+
+    if params[:store].present? && params[:store][:store_id]
+      @store_id = params[:store][:store_id]
+    else
+      @store_id = @admin.stores.first.id
+    end
 
     @selected_store = Store.find(@store_id)
 
     @selected_store_products = @selected_store.products
+
+    @staff_members = @selected_store.admins.map { |s| "#{s.first_name} #{s.last_name}" }
 
     @price_array = []
     @hidden_items_array = []
@@ -85,16 +91,7 @@ class AdminsController < ApplicationController
       @gross_income = sum + x
     end
 
-
-    @selected_store.admins.each do |admin|
-
-
-    binding.pry
-
   end
-
-
-
 
   private
   def admin_params
