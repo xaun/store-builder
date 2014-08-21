@@ -1,5 +1,4 @@
-.centred-view-container {
-  // text-align: center;
+#home-view-container {
 
   #topbar {
     position: relative;
@@ -32,7 +31,7 @@
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.7);
 
-    #form-container {
+    #index-form-container {
       position: absolute;
       right: 10px;
       .btn {
@@ -42,3 +41,25 @@
     }
   }
 }
+
+.centred-view-container {
+  text-align: center;
+  padding-top: 80px;
+
+  .form-outer-container {
+    // background-color: rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    width: 400px;
+    text-align: center;
+  }
+
+  .form-container {
+
+    .flash-errors {
+      font-size: 18px;
+      color: red;
+    }
+  }
+}
+
+

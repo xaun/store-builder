@@ -1,4 +1,4 @@
-.centred-view-container
+#home-view-container
   #topbar
     %h1 Bang-Up!
     = link_to('login', login_path, :class => 'link')
@@ -6,18 +6,27 @@
 
 
   #account-create
-    #form-container
-      = form_tag '/', :class => 'form-inline' do
-        = text_field_tag "store[store_name]", nil, :class => 'form-control', :placeholder => 'Store Name'
-        = text_field_tag "admin[email]", nil, :class => 'form-control', :placeholder => 'Email'
-        = password_field_tag "admin[password]", nil, :class => 'form-control', :placeholder => 'Password'
-        = password_field_tag "admin[password_confirmation]", nil, :class => 'form-control', :placeholder => 'Confirm Password'
-        = submit_tag nil, class: 'btn btn-primary btn-sm'
+    - if (@admin && @admin.errors.any?) || (@store && @store.errors.any?)
+      #index-form-container{:class => 'form-group has-error'}
+        = form_tag '/', :class => 'form-inline' do
+          = text_field_tag "store[store_name]", nil, :class => 'form-control', :placeholder => 'Store Name'
+          = text_field_tag "admin[email]", nil, :class => 'form-control', :placeholder => 'Email'
+          = password_field_tag "admin[password]", nil, :class => 'form-control', :placeholder => 'Password'
+          = password_field_tag "admin[password_confirmation]", nil, :class => 'form-control', :placeholder => 'Confirm Password'
+          = submit_tag nil, class: 'btn btn-primary btn-sm'
+    - else
+      #index-form-container
+        = form_tag '/', :class => 'form-inline' do
+          = text_field_tag "store[store_name]", nil, :class => 'form-control', :placeholder => 'Store Name'
+          = text_field_tag "admin[email]", nil, :class => 'form-control', :placeholder => 'Email'
+          = password_field_tag "admin[password]", nil, :class => 'form-control', :placeholder => 'Password'
+          = password_field_tag "admin[password_confirmation]", nil, :class => 'form-control', :placeholder => 'Confirm Password'
+          = submit_tag nil, class: 'btn btn-primary btn-sm'
 
-      .errors
-        - if @admin
-          - if @admin.errors.any?
-            = @admin.errors.full_messages.to_sentence
-        - if @store
-          - if @store.errors.any?
-            = @store.errors.full_messages
+      / .errors
+      /   - if @admin
+      /     - if @admin.errors.any?
+      /       = @admin.errors.full_messages.to_sentence
+      /   - if @store
+      /     - if @store.errors.any?
+      /       = @store.errors.full_messages

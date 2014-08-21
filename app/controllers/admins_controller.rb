@@ -16,7 +16,7 @@ class AdminsController < ApplicationController
       redirect_to admin_account_setup_path
     else
       # need render to keep errors.
-      render "pages/index"
+      render 'pages/index'
     end
   end
 

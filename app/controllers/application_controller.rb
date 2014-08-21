@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
        params[:controller] != 'stores' &&
        params[:controller] != 'pages' &&
        params[:action] != 'account_setup' &&
-       params[:controller] != 'sessions'
+       params[:controller] != 'sessions' &&
+       params[:action] != 'account_create'
        @sidebar_reveal = 'sidebar'
      else
       @sidebar_reveal = false

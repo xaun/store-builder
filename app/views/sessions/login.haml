@@ -1,10 +1,22 @@
-%h2 Log into your store
-= form_tag '/login' do
-  %p Email Address
-  = text_field_tag 'email', nil, :autofocus => true
-  %p Password
-  = password_field_tag 'password'
-  = submit_tag
+.centred-view-container
 
-.errors
-  = flash[:notice]
+  .form-outer-container
+    %h2 Log into your store
+    .form-container
+      - if flash.present?
+        = form_tag '/login', :class => 'form-group has-error' do
+          = label_tag 'Email Address'
+          = text_field_tag 'email', nil, :autofocus => true, :class => 'form-control'
+          = label_tag 'Password'
+          = password_field_tag 'password', nil, :class => 'form-control'
+          = submit_tag 'Go', class: 'btn btn-success btn-block'
+      - else
+        = form_tag '/login', :class => 'form-horizontal' do
+          = label_tag 'Email Address'
+          = text_field_tag 'email', nil, :autofocus => true, :class => 'form-control'
+          = label_tag 'Password'
+          = password_field_tag 'password', nil, :class => 'form-control'
+          = submit_tag 'Go', class: 'btn btn-success btn-block'
+
+      .flash-errors
+        = flash[:notice]
