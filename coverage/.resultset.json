@@ -460,6 +460,9 @@
         1,
         1,
         null,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/xaunlopez/Projects/wdi/06-advanced/bang-up/app/helpers/application_helper.rb": [
@@ -987,6 +990,6 @@
         null
       ]
     },
-    "timestamp": 1408497645
+    "timestamp": 1408599195
   }
 }

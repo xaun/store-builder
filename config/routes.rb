@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   delete '/admin/products/:id' => 'products#destroy', :as => :admin_product_delete
 
   #stores
+  post '/stores' => 'stores#select'
   get '/stores/:id' => 'stores#show', :as => :store
 
 end

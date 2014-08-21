@@ -1,4 +1,9 @@
 .topbar
   %p Dashboard
-%h3 Welcome to your Bang-Up store, #{@admin.first_name}.
-%button View Your Website
+
+#dashboard-container
+  = form_tag "/stores" do
+    = select_tag("store[store_id]", options_for_select(@stores_array), :class => 'form-control')
+    = submit_tag 'View your website', :class => 'btn btn-primary'
+
+

@@ -46,6 +46,9 @@ class AdminsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path
     end
+    @stores_array = @admin.stores.map { |store| [store.store_name, store.id] }
+
+    # raise 'test'
   end
 
 
