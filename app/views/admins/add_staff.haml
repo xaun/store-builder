@@ -1,0 +1,12 @@
+.centred-view-container
+  .form-outer-container
+    %h2 Search for a user to add as a staff member
+    .form-container
+      = form_tag '/admin/add-staff', :class => 'form-horizontal' do
+        = label_tag 'Email Address'
+        = text_field_tag 'email', nil, :required => true, :autofocus => true, :class => 'form-control'
+        = label_tag 'Store'
+        = select_tag("store[store_id]", options_for_select(@stores_array, @store_id), :class => 'form-control')
+        = submit_tag 'Search', class: 'btn btn-success btn-block'
+
+    = link_to 'Back', '/admin', :class => 'btn btn-primary'

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # - store management routes - #
   get '/admin' => 'admins#dashboard'
   post '/admin' => 'admins#dashboard'
+  get '/admin/add-staff' => 'admins#add_staff'
+  post '/admin/add-staff' => 'admins#post_added_staff'
 
   # products
   get '/admin/products' => 'products#index'

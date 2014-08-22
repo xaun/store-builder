@@ -38,59 +38,74 @@ class AdminsController < ApplicationController
     end
   end
 
+  def add_staff
+    if @current_admin == nil || @current_admin.empty?
+      redirect_to root_path
+    else
+      # Array of stores owned by session_admin
+      @stores_array = @current_admin[0].stores.map { |store| [store.store_name, store.id] }
+    end
+  end
 
+  def post_added_staff
+    @selected_admin_email = params[:email]
+    @admin = Admin.where(:email => @selected_admin_email)
+    @selected_store = Store.find(params[:store][:store_id])
+    @admin[0].stores << @selected_store
+    redirect_to admin_path
+  end
 
   # - Managing a Bang-Up store - #
   #
   # Home page for a signed in admin.
   def dashboard
-    # makes sure session is an admin account
-    begin
-      @admin = Admin.find(session[:admin_id])
-    rescue ActiveRecord::RecordNotFound
+    # redirection to root_path if not logged into an admin account.
+    if @current_admin == nil || @current_admin.empty?
       redirect_to root_path
-    end
-    # Array of stores owned by session_admin
-    @stores_array = @admin.stores.map { |store| [store.store_name, store.id] }
-
-    @products = Product.all
-
-
-    if params[:store].present? && params[:store][:store_id]
-      @store_id = params[:store][:store_id]
     else
-      @store_id = @admin.stores.first.id
-    end
+      @admin = Admin.find(session[:admin_id])
 
-    @selected_store = Store.find(@store_id)
+      # Array of stores owned by session_admin
+      @stores_array = @admin.stores.map { |store| [store.store_name, store.id] }
 
-    @selected_store_products = @selected_store.products
-
-    @staff_members = @selected_store.admins.map { |s| "#{s.first_name} #{s.last_name}" }
-
-    @price_array = []
-    @hidden_items_array = []
-    @inventory_array = []
-    @gross_array = []
+      @products = Product.all
 
 
-    @selected_store.products.each do |product|
+      if params[:store].present? && params[:store][:store_id]
+        @store_id = params[:store][:store_id]
+      else
+        @store_id = @admin.stores.first.id
+      end
 
-      sum = product.quantity * product.price
+      @selected_store = Store.find(@store_id)
 
-      @gross_array << sum
-      @price_array << product.price
-      @inventory_array << product.quantity
+      @selected_store_products = @selected_store.products
 
-      if product.visibility == false
-        @hidden_items_array << product
+      @staff_members = @selected_store.admins.map { |s| "#{s.first_name} #{s.last_name}" }
+
+      @price_array = []
+      @hidden_items_array = []
+      @inventory_array = []
+      @gross_array = []
+
+
+      @selected_store.products.each do |product|
+
+        sum = product.quantity * product.price
+
+        @gross_array << sum
+        @price_array << product.price
+        @inventory_array << product.quantity
+
+        if product.visibility == false
+          @hidden_items_array << product
+        end
+      end
+
+      @gross_array.inject do |sum, x|
+        @gross_income = sum + x
       end
     end
-
-    @gross_array.inject do |sum, x|
-      @gross_income = sum + x
-    end
-
   end
 
   private
