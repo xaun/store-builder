@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
 
       redirect_to admin_path
     else
-      render :login
       flash[:notice] = "Invalid login. Please try again."
+      render :login
     end
   end
 
