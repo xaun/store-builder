@@ -20,6 +20,7 @@ class AdminsController < ApplicationController
     end
   end
 
+
   # view contains more detailed account_setup form.
   def account_setup
     authenticate_admin
@@ -27,6 +28,7 @@ class AdminsController < ApplicationController
       redirect_to root_path
     end
   end
+
 
   # update the account & store with params sent from account_setup form.
   def account_complete
@@ -38,22 +40,7 @@ class AdminsController < ApplicationController
     end
   end
 
-  def add_staff
-    if @current_admin == nil || @current_admin.empty?
-      redirect_to root_path
-    else
-      # Array of stores owned by session_admin
-      @stores_array = @current_admin[0].stores.map { |store| [store.store_name, store.id] }
-    end
-  end
 
-  def post_added_staff
-    @selected_admin_email = params[:email]
-    @admin = Admin.where(:email => @selected_admin_email)
-    @selected_store = Store.find(params[:store][:store_id])
-    @admin[0].stores << @selected_store
-    redirect_to admin_path
-  end
 
   # - Managing a Bang-Up store - #
   #
@@ -107,6 +94,27 @@ class AdminsController < ApplicationController
       end
     end
   end
+
+
+  def add_staff
+    if @current_admin == nil || @current_admin.empty?
+      redirect_to root_path
+    else
+      # Array of stores owned by session_admin
+      @stores_array = @current_admin[0].stores.map { |store| [store.store_name, store.id] }
+    end
+  end
+
+
+  def post_added_staff
+    @selected_admin_email = params[:email]
+    @admin = Admin.where(:email => @selected_admin_email)
+    @selected_store = Store.find(params[:store][:store_id])
+    @admin[0].stores << @selected_store
+    redirect_to admin_path
+  end
+
+
 
   private
   def admin_params
