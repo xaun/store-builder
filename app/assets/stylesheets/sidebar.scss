@@ -1,9 +1,16 @@
 #sidebar {
-  background-color: white;
+  background-color: #403E3F;
   position: fixed;
   height: 100%;
   width: 19%;
   border-right: 3.5px solid #E0E0E0;
-  padding-left: 10px;
+  list-style: none;
+  font-size: 1.7em;
+  li {
+    padding-left: 15px;
+    padding-top: 10px;
+    border-bottom: 1px solid #dddddd;
+  }
+  li:hover {
+  }
 }
-
