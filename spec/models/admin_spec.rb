@@ -95,14 +95,14 @@ RSpec.describe Admin, :type => :model do
 
     context 'when password is less than 6 or more than 20 characters' do
       it 'should be invalid' do
-        @admin = FactoryGirl.create(:admin)
+        @admin = FactoryGirl.build(:admin)
         passwords = ['xxx', 'xxxxxxxxxxxxxxxxxxxxx']
         passwords.each do |invalid_password|
           @admin.password = invalid_password
           @admin.password_confirmation = invalid_password
           expect(@admin).to be_invalid
         end
-        expect(@admin).to be_invalid
+        # expect(@admin).to be_invalid
       end
     end
 
