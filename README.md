@@ -1,3 +1,3 @@
-## Bang-Up!
-Bang-Up! is a tool for creating and managing your own online shop.
+## Store Builder
+Store Builder is a tool for creating and managing your own online shop.
 
