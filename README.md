@@ -14,6 +14,7 @@ This application currently uses Rails, Bootstrap, Haml, Scss.
 + [ ] Shopping cart & Check-out for stores
 + [ ] Orders for admin
 + [ ] Customers for admin
+
 And so much more....
 
 ## Special Thanks
