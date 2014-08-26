@@ -7,13 +7,13 @@ It is currently very unfinished.. Check back here soon.
 This application currently uses Rails, Bootstrap, Haml, Scss.
 
 ## Todo
-+[] Build a shopfront with backbone at shop/:id
-+[] Use friendly_id gem to replace shop/:id with :store_name
-+[] Feature to be able to create another store from a logged in admin account.
-+[] User logins for stores
-+[] Shopping cart & Check-out for stores
-+[] Orders for admin
-+[] Customers for admin
++ [ ] Build a shopfront with backbone at shop/:id
++ [ ] Use friendly_id gem to replace shop/:id with :store_name
++ [ ] Feature to be able to create another store from a logged in admin account.
++ [ ] User logins for stores
++ [ ] Shopping cart & Check-out for stores
++ [ ] Orders for admin
++ [ ] Customers for admin
 And so much more....
 
 ## Special Thanks
