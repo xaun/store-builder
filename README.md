@@ -7,8 +7,9 @@ It is currently very unfinished.. Check back here soon.
 This application currently uses Rails, Bootstrap, Haml, Scss.
 
 ## Todo
-+ [ ] Build a shopfront with backbone at shop/:id
++ [ ] Build a shopfront with backboneJS at shop/:id
 + [ ] Use friendly_id gem to replace shop/:id with :store_name
++ [ ] Finish RSPEC testing
 + [ ] Feature to be able to create another store from a logged in admin account.
 + [ ] User logins for stores
 + [ ] Shopping cart & Check-out for stores
