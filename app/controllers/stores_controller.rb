@@ -1,9 +1,8 @@
 class StoresController < ApplicationController
 
   def select
-    # Ask how to do this using a private method.
+    # Refactor to use a private function.
     @store = Store.find params[:store][:store_id]
-
     redirect_to "/stores/#{@store.id}"
   end
 
