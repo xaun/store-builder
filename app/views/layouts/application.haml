@@ -7,7 +7,7 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body{:class => @sidebar_reveal}
-    #main-container
+    #main-container{:class => @main_container_selector}
       - if @sidebar_reveal
         #sidebar
           %li= link_to('Dashboard', admin_path)

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_admin
   before_action :reveal_sidebar
+  before_action :main_container_selector
 
 
   private
@@ -19,6 +20,14 @@ class ApplicationController < ActionController::Base
        @sidebar_reveal = 'sidebar'
      else
       @sidebar_reveal = false
+    end
+  end
+
+  def main_container_selector
+    if session[:admin_id] && params[:controller] == 'stores'
+      @main_container_selector = 'store-main-container'
+    else
+      @main_container_selector = false
     end
   end
 
