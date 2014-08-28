@@ -5,11 +5,15 @@
     %li About
     %li Contact Us
     %li Login
-.store_id= @store.id
+
+/ Cheeky hidden div gets the store_id from the 'stores#shopfront' params[:id].
+/ This makes it easy get the store_id from the DOM, and filter my db queries.
+.store_id{:style => 'display: none;'}= @store.id
+
 #store-main
 
 
-%script{:type => 'text/template', :id => 'all-products-template'}
+%script{:type => 'text/handlebars-template', :id => 'all-products-template'}
   %h2 Hello Backbone!
   {{#each products}}
   %ul
