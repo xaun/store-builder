@@ -14,12 +14,13 @@
 class Admin < ActiveRecord::Base
   has_and_belongs_to_many :stores
 
+  # - Email validations - #
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  has_secure_password
   validates :email, :presence => true,  :uniqueness => true, :length => { :minimum => 6 }, :on => :create
   validates_format_of :email, :with => EmailRegex
-  # validates :first_name, :length => { :minimum => 2 }, :allow_blank => true
-  # validates :last_name, :length => { :minimum => 2 }, :allow_blank => true
+
+  # - Password validations - #
+  has_secure_password
   validates :password, :length => { in: 6..20 }, :confirmation => true, :format => {:with => /(?=.*[A-Z])(?=.*[\d])/}, :on => :create
 end
 

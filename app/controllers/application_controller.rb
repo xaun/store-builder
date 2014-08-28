@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
 
   private
-  # This is amazing.
+  # Controls when to show/hide the admin sidebar in application.haml.
   def reveal_sidebar
     if session[:admin_id] &&
        params[:controller] != 'stores' &&
@@ -23,6 +23,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Adds the class of 'store-main-container' to the div#main-container
+  # when within the stores_controller.
   def main_container_selector
     if session[:admin_id] && params[:controller] == 'stores'
       @main_container_selector = 'store-main-container'

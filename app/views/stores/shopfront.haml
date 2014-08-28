@@ -1,0 +1,18 @@
+%nav
+  %h1 Store Name Goes Here
+  %ul
+    %li Home
+    %li About
+    %li Contact Us
+    %li Login
+.store_id= @store.id
+#store-main
+
+
+%script{:type => 'text/template', :id => 'all-products-template'}
+  %h2 Hello Backbone!
+  {{#each products}}
+  %ul
+    %li {{title}}
+  {{/each}}
+

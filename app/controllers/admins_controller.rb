@@ -1,14 +1,17 @@
 class AdminsController < ApplicationController
 
 
-  # - Creating a Bang-Up store - #
+  # - Creating a store - #
   #
   # pages#index sign-up form gets sent to account_create.
-  def account_create
-    # instantiating both a new Admin & Store with params from pages#index sign-up form.
+  def account_create # POST '/'
+    # instantiating both a new Admin & Store with params from pages#index sign-
+    # up form.
     @store = Store.new store_params
     @admin = Admin.new admin_params
 
+    # Saves the new admin and store instances & associates the store with the
+    # admin.stores.
     if @admin.save && @store.save
       @admin.stores << @store
       session[:admin_id] = @admin.id
@@ -21,8 +24,8 @@ class AdminsController < ApplicationController
   end
 
 
-  # view contains more detailed account_setup form.
-  def account_setup
+  # The view contains a more detailed account_setup form (step 2 signup process).
+  def account_setup # GET 'admins#account_setup'
     authenticate_admin
     if @current_admin == nil
       redirect_to root_path
@@ -30,10 +33,16 @@ class AdminsController < ApplicationController
   end
 
 
-  # update the account & store with params sent from account_setup form.
-  def account_complete
+  # Update the account & store with params sent from account_setup form.
+  def account_complete # POST '/admin/account_setup'
     @admin = Admin.find(session[:admin_id])
+
+    # This section of the site is built for new admin accounts.
+    # Update the admin attributes with more detailed information from the
+    # account_setup (step 2) form, && update the their first store which was
+    # instantiated at the account_create action.
     if @admin.update(admin_params) && @admin.stores.first.update(store_params)
+      ## Sign-up is successful and admin dashboard is loaded.
       redirect_to admin_path
     else
       render :account_setup
@@ -42,14 +51,15 @@ class AdminsController < ApplicationController
 
 
 
-  # - Managing a Bang-Up store - #
+  # - Managing a store - #
   #
-  # Home page for a signed in admin.
+  # Home page for a signed in admin: 'Dashboard'.
   def dashboard
     # redirection to root_path if not logged into an admin account.
     if @current_admin == nil || @current_admin.empty?
       redirect_to root_path
     else
+      # Saving the current admin to an instance variable within the dashboard.
       @admin = Admin.find(session[:admin_id])
 
       # Array of stores owned by session_admin
@@ -57,10 +67,14 @@ class AdminsController < ApplicationController
 
       @products = Product.all
 
-
+      # If there is a selection present from the store select input at
+      # admins#dashboard. Stops site from breaking when the store select input
+      # is not loaded.
       if params[:store].present? && params[:store][:store_id]
+        # Assigns store_id from select input params to an instance variable.
         @store_id = params[:store][:store_id]
       else
+        # Assigns store_id from the first store belonging to the @admin.
         @store_id = @admin.stores.first.id
       end
 
@@ -75,7 +89,7 @@ class AdminsController < ApplicationController
       @inventory_array = []
       @gross_array = []
 
-
+      # Store products analytics
       @selected_store.products.each do |product|
 
         sum = product.quantity * product.price
@@ -100,12 +114,15 @@ class AdminsController < ApplicationController
     if @current_admin == nil || @current_admin.empty?
       redirect_to root_path
     else
-      # Array of stores owned by session_admin
+      # Array of stores owned by session_admin, this is shown in a select
+      # input in the add_staff views form. It allows the admin to select which
+      # store to add a new staff member to.
       @stores_array = @current_admin[0].stores.map { |store| [store.store_name, store.id] }
     end
   end
 
-
+  # Queries DB for @selected_admin_email and associates the admin account with
+  # with the @selected_store.
   def post_added_staff
     @selected_admin_email = params[:email]
     @admin = Admin.where(:email => @selected_admin_email)

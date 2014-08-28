@@ -2,6 +2,7 @@
   %p Dashboard
 
 #dashboard-container
+  // Form for store select input.
   = form_tag "/admin", :id => 'dash-store-select' do
     = select_tag("store[store_id]", options_for_select(@stores_array, @store_id), :class => 'form-control')
     / this submit_tag is hidden with css
