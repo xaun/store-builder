@@ -1,10 +1,12 @@
 ## Store Builder
 Store Builder is a tool for creating and managing your own online shop.
 
-It is currently very unfinished.. Check back here soon.
+The vision for this application is to be able to manage the content & settings of your store with a Rails and CSS interface, then view your store live with nice responsive BackboneJS interface.
+
+Although, it is currently very unfinished.. Check back here soon.
 
 ## Toolkit
-This application currently uses Rails, Bootstrap, Haml, Scss.
+This application currently uses Rails, Backbone, Bootstrap, Haml & Scss.
 
 ## Todo
 + [ ] Build a shopfront with backboneJS at shop/:id
