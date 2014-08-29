@@ -1,3 +1,4 @@
+// Styles for pages#index.
 #home-view-container {
 
   #topbar {
@@ -42,12 +43,12 @@
   }
 }
 
+// Styles for step 2 sign-up and log-in forms.
 .centred-view-container {
   text-align: center;
   padding-top: 80px;
 
   .form-outer-container {
-    // background-color: rgba(255, 255, 255, 0.7);
     display: inline-block;
     width: 400px;
     text-align: center;

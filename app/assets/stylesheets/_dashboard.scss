@@ -1,0 +1,35 @@
+// Common properties for the statistics boxes in the admin dashboard view.
+@mixin stats-divs {
+  display: inline-block;
+  width: 47%;
+  height: 300px;
+  border-radius: 5px;
+}
+
+#dashboard-container {
+  position: relative;
+
+  // hides the submit button for the store select input.
+  #btn {
+    display: none;
+  }
+
+  div#product-stats {
+    @include stats-divs;
+
+    margin-right: 2%;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  div#staff-stores-stats {
+    @include stats-divs;
+
+    margin-left: 2%;
+  }
+}
+
+
+
+
+

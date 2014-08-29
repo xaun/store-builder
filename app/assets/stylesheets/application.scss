@@ -21,6 +21,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Abel);
+@import "dashboard";
+@import "home";
+@import "products";
+@import "sidebar";
+@import "store";
 
 * {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
