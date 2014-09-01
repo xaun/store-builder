@@ -1,22 +1,35 @@
-%nav
-  %h1 Store Name Goes Here
-  %ul
-    %li Home
-    %li About
-    %li Contact Us
-    %li Login
+#store-page-container
+  %nav
+    #top-main-bar
+      %h1= @store.store_name
+      #top-main-bar-links
+        %ul
+          %li.link-3
+            %a{:href => "#"} About
+          %li.link-2
+            %a{:href => "#"} Contact Us
+          %li.link-1
+            %a{:href => "#"} Login
 
-/ Cheeky hidden div gets the store_id from the 'stores#shopfront' params[:id].
-/ This makes it easy get the store_id from the DOM, and filter my db queries.
-.store_id{:style => 'display: none;'}= @store.id
+    #top-selection-bar
 
-#store-main
+  / Cheeky hidden div gets the store_id from the 'stores#shopfront' params[:id].
+  / This makes it easy get the store_id from the DOM, and filter my db queries.
+  .store_id{:style => 'display: none;'}= @store.id
 
+  #store-main
+
+
+// ------   BACKBONE TEMPLATES ------ //
 
 %script{:type => 'text/handlebars-template', :id => 'all-products-template'}
-  %h2 Hello Backbone!
-  {{#each products}}
-  %ul
-    %li {{title}}
-  {{/each}}
+  .row
+    {{#each products}}
+    %div{:class => 'col-xs-6 col-md-4', :id => 'grid-columns', :style => 'padding: 0px;'}
+      #product-icons-top-dropdown
+      = link_to(image_tag('{{image}}', :class => 'product-image', :title => '{{title}}'), '#')
+      #product-icons-bot-dropdown
+    {{/each}}
+
+%script{:type => 'text/handlebars-template', :id => 'product-template'}
 

@@ -11,7 +11,8 @@ class ProductsController < ApplicationController
 
       # when params[:store_id] exists, store.products of that id are made
       # available via @products.
-      @products = Product.where(:store_id => params[:store_id])
+      @products = Product.where(:store_id => params[:store_id], :visibility => params[:visibility])
+
       # Learning moment!..
       # Raising params.inspect shows in the console & network tab anywhere in the app except on the rails route for this controller#action. Then pry-debugger fires.
       # raise params.inspect

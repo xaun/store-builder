@@ -16,9 +16,14 @@ app.Router = Backbone.Router.extend
       data: {
         # See code & comments in shopfront.haml on div.store_id.
         store_id: $('.store_id').text()
+        # Query for the item shopfront visibility feature.
+        visibility: true
       }
     # the .done function is needed so the data is fetched before the following # code is run.
     }).done ->
       #
       allProductsView = new app.AllProductsView({collection: app.products})
       allProductsView.render()
+
+
+

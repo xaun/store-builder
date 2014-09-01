@@ -1,0 +1,102 @@
+//----- Page & setup styles -----//
+body {
+  background-color: lighten(#ddd, 10%);
+}
+#store-page-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+$left-gutter: 15px;
+$right-gutter: 15px;
+
+@mixin foundations {
+  display: inline-block;
+  padding-left: $left-gutter;
+  padding-right: $right-gutter;
+}
+
+
+//----- Top-bar styles -----//
+@mixin positioning {
+  position: absolute;
+  display: inline-block;
+  top: 19px;
+}
+
+#top-main-bar {
+  position: relative;
+  border-bottom: 2px solid black;
+  height: 60px;
+
+  h1 {
+    padding: 10px 0 0 20px;
+  }
+}
+
+#top-main-bar-links {
+  display: inline-block;
+  right: 0;
+
+  li {
+    &.link-1 {
+      @include positioning;
+      right: 40px;
+    }
+    &.link-2 {
+      @include positioning;
+      right: 140px;
+    }
+    &.link-3 {
+      @include positioning;
+      right: 270px;
+    }
+  }
+}
+
+//----- All products view grid styles ------//
+
+.row {
+  margin: 45px 0 0 0;
+
+  img.product-image {
+    width: 400px;
+    height: 320px;
+    padding: 5px;
+    // z-index: -10;
+  }
+}
+
+#grid-columns {
+  position: relative;
+  // z-index: -10;
+}
+
+#product-icons-top-dropdown {
+  position: absolute;
+  background-color: green;
+  height: 40px;
+  top: 0;
+  z-index: 10;
+}
+
+#product-icons-bot-dropdown {
+  position: absolute;
+  height: 40px;
+  background-color: green;
+  bottom: 0;
+  z-index: 10;
+}
+
+
+//------ Product view styles -----//
+
+
+
+
+
+
+
+
+
+
