@@ -3,6 +3,12 @@ window.app = window.app or {}
 app.AllProductsView = Backbone.View.extend
 
   tagName: 'div'
+  id: 'all-products-view'
+
+  initialize: ->
+    if app.currentView
+      app.currentView.remove()
+    app.currentView = @
 
   render: ->
     console.log 'allProductsView'
@@ -14,9 +20,6 @@ app.AllProductsView = Backbone.View.extend
     # allProductsView function. Which then spits out the 'all-products-
     # template' as html into this.el with the evaluated app.products data.
     @$el.html allProductsView { products: app.products.toJSON() }
-
-    # sets this.el (which is a div) to have the id of 'all-products-view'
-    @$el.attr 'id', 'all-products-view'
 
     $('#store-main').append @el
 

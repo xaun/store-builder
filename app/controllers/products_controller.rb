@@ -9,8 +9,8 @@ class ProductsController < ApplicationController
       # View uses @stores to iterate through each store and store.products.
       @stores = @current_admin[0].stores
 
-      # when params[:store_id] exists, store.products of that id are made
-      # available via @products.
+      # @products is fetched by Backbone data functions with params[:store_id]
+      # & params[:visibility].
       @products = Product.where(:store_id => params[:store_id], :visibility => params[:visibility])
 
       # Learning moment!..
