@@ -7,7 +7,7 @@
           %li.link-3
             %a{:href => "#"} About
           %li.link-2
-            %a{:href => "#"} Contact Us
+            %a{:href => "#"} Contact
           %li.link-1
             %a{:href => "#"} Login
 
@@ -24,7 +24,7 @@
 %script{:type => 'text/handlebars-template', :id => 'all-products-template'}
   .row
     {{#each products}}
-    %div{:class => 'col-xs-6 %col-md-4', :id => 'grid-columns', :style => 'padding: 0px;'}
+    %div{:class => 'col-xs-6 col-md-4', :id => 'grid-columns', :style => 'padding: 0px;'}
       #product-icons-top-dropdown
       = link_to(image_tag('{{image}}', :class => 'product-image', :title => '{{title}}'), '#product/{{id}}')
       #product-icons-bot-dropdown
