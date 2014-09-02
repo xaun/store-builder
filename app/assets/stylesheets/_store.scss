@@ -6,17 +6,8 @@
   }
 }
 
-$left-gutter: 15px;
-$right-gutter: 15px;
-
-@mixin foundations {
-  display: inline-block;
-  padding-left: $left-gutter;
-  padding-right: $right-gutter;
-}
-
 body {
-  background-color: lighten(#ddd, 10%);
+  background-color: white;
 }
 
 #store-page-container {
@@ -33,6 +24,7 @@ body {
   position: relative;
   border-bottom: 2px solid black;
   height: 90px;
+  margin-bottom: 45px;
 
   @include respond-to(max-width, 780px) {
     height: 130px;
@@ -91,36 +83,39 @@ body {
 //----- All products view grid styles ------//
 
 .row {
-  margin: 45px 0 0 0;
+  margin: 0;
 
-  img.product-image {
-    width: 100%;
-    height: 320px;
-    padding: 5px;
-
-    @include respond-to(max-width, 990px) {
-      width: 100%;
-      height: 380px;
-    }
-    @include respond-to(max-width, 780px) {
-      width: 100%;
-      height: 300px;
-    }
-    @include respond-to(max-width, 690px) {
-      width: 100%;
-      height: 270px;
-    }
-    @include respond-to(max-width, 510px) {
-      width: 100%;
-      height: 230px;
-    }
-
-  }
-}
-
-#grid-columns {
+  #grid-columns {
   position: relative;
   // z-index: -10;
+
+    #product-tile {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-origin: center;
+      // background-attachment: fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      height: 320px;
+      margin: 5px;
+      z-index: -10;
+
+      @include respond-to(max-width, 990px) {
+      height: 380px;
+      }
+      @include respond-to(max-width, 780px) {
+        height: 300px;
+      }
+      @include respond-to(max-width, 690px) {
+        height: 270px;
+      }
+      @include respond-to(max-width, 510px) {
+        height: 230px;
+      }
+    }
+  }
 }
 
 #product-icons-top-dropdown {

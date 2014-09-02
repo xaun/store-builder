@@ -22,12 +22,20 @@
 // ------   BACKBONE TEMPLATES ------ //
 
 %script{:type => 'text/handlebars-template', :id => 'all-products-template'}
+
   .row
     {{#each products}}
+
     %div{:class => 'col-xs-6 col-md-4', :id => 'grid-columns', :style => 'padding: 0px;'}
+
       #product-icons-top-dropdown
-      = link_to(image_tag('{{image}}', :class => 'product-image', :title => '{{title}}'), '#product/{{id}}')
+
+      %a{:href => "#product/{{id}}"}
+        #product-tile{:style => "background-image: url(/assets/{{image}})"}
+      / = link_to(image_tag('{{image}}', :class => 'product-image', :title => '{{title}}'), '#product/{{id}}')
+
       #product-icons-bot-dropdown
+
     {{/each}}
 
 %script{:type => 'text/handlebars-template', :id => 'product-template'}
