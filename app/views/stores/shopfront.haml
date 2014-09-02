@@ -17,6 +17,7 @@
   / This makes it easy get the store_id from the DOM, and filter my db queries.
   .store_id{:style => 'display: none;'}= @store.id
 
+  / Main view for Backbone rendering.
   #store-main
 
   #footer
@@ -39,18 +40,26 @@
 
   .row
     {{#each products}}
+    // Bootstrap column magic div
+    %div{:class => 'col-xs-6 col-md-4', :id => 'grid-columns'}
 
-    %div{:class => 'col-xs-6 col-md-4', :id => 'grid-columns', :style => 'padding: 0px;'}
-
-      #product-icons-top-dropdown
+      %div{:id => "top-dropdown-{{id}}", :class => 'top-dropdowns'}
+        %span.title {{title}}
+        %span.price ${{price}}.00
 
       %a{:href => "#product/{{id}}"}
-        #product-tile{:style => "background-image: url(/assets/{{image}})"}
-      / # = link_to(image_tag('{{image}}', :class => 'product-image', :title => '{{title}}'), '#product/{{id}}')
+        .product-tiles{:style => "background-image: url(/assets/{{image}})"}
 
-      #product-icons-bot-dropdown
+      %div{:id => "bot-dropdown-{{id}}", :class => 'bot-dropdowns'}
+        %a{:href => "#"}
+          %div{:id => 'buy-button', :class => 'btn btn-success btn-sm'} Add To Cart
 
     {{/each}}
 
 %script{:type => 'text/handlebars-template', :id => 'product-template'}
   %p {{product.title}}
+
+
+
+
+

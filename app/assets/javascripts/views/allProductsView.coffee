@@ -23,3 +23,17 @@ app.AllProductsView = Backbone.View.extend
 
     $('#store-main').append @el
 
+    # Sets the top & bot dropdowns to the size of the .product-tiles.
+    $tileSize = $('.product-tiles').css('width')
+    $('.top-dropdowns').css('width', $tileSize)
+    $('.bot-dropdowns').css('width', $tileSize)
+
+    # Function responsively adjust the top & bot dropdowns.
+    $(window).on('resize', ->
+      $tileSize = $('.product-tiles').css('width')
+      $('.top-dropdowns').css('width', $tileSize)
+      $('.bot-dropdowns').css('width', $tileSize)
+    )
+
+
+

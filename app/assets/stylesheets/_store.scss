@@ -87,9 +87,9 @@ body {
 
   #grid-columns {
   position: relative;
-  // z-index: -10;
+  padding: 0px;
 
-    #product-tile {
+    .product-tiles {
       background-repeat: no-repeat;
       background-position: center;
       background-origin: center;
@@ -103,7 +103,7 @@ body {
       z-index: -10;
 
       @include respond-to(max-width, 990px) {
-      height: 380px;
+        height: 380px;
       }
       @include respond-to(max-width, 780px) {
         height: 300px;
@@ -118,20 +118,43 @@ body {
   }
 }
 
-#product-icons-top-dropdown {
+
+@mixin product-dropdowns {
   position: absolute;
-  background-color: green;
+  background-color: rgba(0,0,0,0.6);
   height: 40px;
-  top: 0;
+  margin: 5px;
   z-index: 10;
+
+  span {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    margin: 5px;
+    &.price {
+      right: 5px;
+    }
+    &.title {
+      left: 5px;
+    }
+  }
 }
 
-#product-icons-bot-dropdown {
-  position: absolute;
-  height: 40px;
-  background-color: green;
+.top-dropdowns {
+  @include product-dropdowns;
+  top: 0;
+}
+
+.bot-dropdowns {
+  @include product-dropdowns;
   bottom: 0;
-  z-index: 10;
+}
+
+#buy-button {
+  position: absolute;
+  right: 0px;
+  width: 70px;
+  margin: 5px !important;
 }
 
 
