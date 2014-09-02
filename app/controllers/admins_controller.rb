@@ -147,6 +147,7 @@ class AdminsController < ApplicationController
   def store_params
     params.require(:store).permit(
       :store_name,
+      :legal_business_name,
       :phone_number,
       :street,
       :city,

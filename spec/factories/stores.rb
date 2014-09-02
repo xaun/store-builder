@@ -13,6 +13,10 @@
 #  postcode                  :string(255)
 #  country                   :string(255)
 #  state                     :string(255)
+#  facebook                  :string(255)
+#  twitter                   :string(255)
+#  instagram                 :string(255)
+#  youtube                   :string(255)
 #  created_at                :datetime
 #  updated_at                :datetime
 #

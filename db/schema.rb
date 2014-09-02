@@ -93,6 +93,10 @@ ActiveRecord::Schema.define(version: 20140816121749) do
     t.string   "postcode"
     t.string   "country"
     t.string   "state"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.string   "youtube"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

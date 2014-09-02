@@ -11,6 +11,10 @@ class CreateStores < ActiveRecord::Migration
       t.string :postcode
       t.string :country
       t.string :state
+      t.string :facebook
+      t.string :twitter
+      t.string :instagram
+      t.string :youtube
 
       t.timestamps
     end

@@ -6,8 +6,8 @@ Product.destroy_all
 a1 = Admin.create(:first_name => 'Xaun', :last_name => 'Lopez', :email => 'xaun@mail.com', :password => 'Chicken1', :password_confirmation => 'Chicken1')
 a2 = Admin.create(:first_name => 'Inspector', :last_name => 'Gadget', :email => 'inspector@mail.com', :password => 'Chicken1', :password_confirmation => 'Chicken1')
 
-s1 = Store.create(:store_name => 'Heaps Of Nikes')
-s2 = Store.create(:store_name => 'Illegal Stuff')
+s1 = Store.create(:store_name => 'Heaps Of Nikes', :legal_business_name => 'Heaps of Nikes PTY LTD', :facebook => 'https://www.facebook.com/xaun.lopez', :twitter => 'https://twitter.com/XaunLopez', :youtube => 'https://www.youtube.com/channel/UCKXZ1cyf8IcFzlkAUcA_3Wg')
+s2 = Store.create(:store_name => 'Illegal Stuff', :legal_business_name => 'Illegal Stuff PTY LTD')
 
 p1 = Product.create(:title => 'Air Max 1', :product_type => 'Shoe', :sku => 'X0001', :quantity => 30, :image => 'maxies01.jpg', :price => 100.00, :visibility => true, :description => "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?")
 p2 = Product.create(:title => 'Air Max 2', :product_type => 'Shoe', :sku => 'X0002', :quantity => 30, :image => 'maxies02.jpg', :price => 100.00, :visibility => true, :description => "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?")

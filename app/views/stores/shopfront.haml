@@ -19,6 +19,20 @@
 
   #store-main
 
+  #footer
+    #social-media
+      - if @store.facebook
+        = link_to(image_tag('fb-48.png', :id => 'facebook'), "#{@store.facebook}", :target => "_blank")
+      - if @store.twitter
+        = link_to(image_tag('twit-48.png', :id => 'twitter'), "#{@store.twitter}", :target => "_blank")
+      - if @store.instagram
+        = link_to(image_tag('insta-48.png', :id => 'instagram'), "#{@store.instagram}", :target => "_blank")
+      - if @store.youtube
+        = link_to(image_tag('tube-48.png', :id => 'youtube'), "#{@store.youtube}", :target => "_blank")
+    #copyright
+      %p= "Copyright #{Time.now.year} © #{@store.legal_business_name}."
+
+
 // ------   BACKBONE TEMPLATES ------ //
 
 %script{:type => 'text/handlebars-template', :id => 'all-products-template'}
@@ -32,7 +46,7 @@
 
       %a{:href => "#product/{{id}}"}
         #product-tile{:style => "background-image: url(/assets/{{image}})"}
-      / = link_to(image_tag('{{image}}', :class => 'product-image', :title => '{{title}}'), '#product/{{id}}')
+      / # = link_to(image_tag('{{image}}', :class => 'product-image', :title => '{{title}}'), '#product/{{id}}')
 
       #product-icons-bot-dropdown
 
