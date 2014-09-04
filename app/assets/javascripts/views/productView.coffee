@@ -3,7 +3,7 @@ window.app = window.app or {}
 app.ProductView = Backbone.View.extend
 
   tagName: 'div'
-  id: 'all-products-view'
+  id: 'product-view'
 
   initialize: ->
     if app.currentView

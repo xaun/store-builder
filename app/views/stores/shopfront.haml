@@ -52,12 +52,34 @@
 
       %div{:id => "bot-dropdown-{{id}}", :class => 'bot-dropdowns'}
         %a{:href => "#"}
-          %div{:id => 'buy-button', :class => 'btn btn-success btn-sm'} Add To Cart
+          %div{:id => 'tiles-buy-button', :class => 'btn btn-success btn-sm'} Add To Cart
 
     {{/each}}
 
+
 %script{:type => 'text/handlebars-template', :id => 'product-template'}
-  %p {{product.title}}
+
+  #back-bar
+    %a{:href => "#"}
+      %img{:src => "/assets/back-arrow.png"}/
+  #product-image{:style => "background-image: url(/assets/{{product.image}})"}
+  #product-details
+    #heading
+      %span.price ${{product.price}}.00
+      %a{:href => "#"}
+        %div{:id => 'details-buy-button', :class => 'btn btn-success btn-sm'} Add To Cart
+    #description
+      %h2 {{product.title}}
+      %article {{product.description}}
+
+
+
+
+
+
+
+
+
 
 
 
