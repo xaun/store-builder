@@ -4,15 +4,12 @@
   width: 47%;
   height: 300px;
   border-radius: 5px;
+  padding-top: 15px
 }
 
 #dashboard-container {
   position: relative;
-
-  // hides the submit button for the store select input.
-  #btn {
-    display: none;
-  }
+  padding: 20px 20px 40px 20px;
 
   div#product-stats {
     @include stats-divs;
@@ -29,7 +26,11 @@
   }
 }
 
+//----- Settings view -----//
 
+#settings-container {
+  padding: 20px 20px 40px 20px;
+}
 
 
 

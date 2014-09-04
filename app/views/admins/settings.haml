@@ -1,0 +1,66 @@
+.topbar
+  %p Settings
+#settings-container
+  // Form for store select input.
+  = form_tag("/admin/settings", :method => :post, :id => 'settings-store-select') do
+    = select_tag("store[store_id]", options_for_select(@stores_array, @store_id), :class => 'form-control')
+    / this submit_tag is hidden with css
+    = submit_tag 'submit', :class => 'btn btn-primary', :style => 'display: none;'
+    // jQuery in admin.coffee is listening for change to submit.
+
+  #edit-admin-settings-form
+
+    %h3 Personal Details
+    = form_tag("/admin/update_settings", :method => :put, :class => 'form-horizontal') do
+
+      / // Hidden text field to send store_id params over to update function.
+      / = text_field_tag 'store[store_id]', "#{@store_id}", :style => 'display: none;'
+
+      = label_tag 'First Name'
+      = text_field_tag 'admin[first_name]', "#{@admin.first_name}", :class => 'form-control'
+      = label_tag 'Last Name'
+      = text_field_tag 'admin[last_name]', "#{@admin.last_name}", :class => 'form-control'
+      = label_tag 'Email'
+      = text_field_tag 'admin[email]', "#{@admin.email}", :class => 'form-control'
+      = submit_tag nil, class: 'btn btn-success btn-block', id: 'settings-submit-1'
+
+    .flash-errors
+      = flash[:admin_success]
+      = flash[:no_change]
+
+
+      %h3 Store Details
+      = form_tag("/admin/update_settings", :method => :put, :class => 'form-horizontal') do
+
+        // Hidden text field to send store_id params over to update function.
+        = text_field_tag 'store[store_id]', "#{@store_id}", :style => 'display: none;'
+
+        = label_tag 'Store Name'
+        = text_field_tag 'store[store_name]', "#{@selected_store.store_name}", :class => 'form-control'
+        = label_tag 'Legal Business Name'
+        = text_field_tag 'store[legal_business_name]', "#{@selected_store.legal_business_name}", :class => 'form-control'
+        = label_tag 'Phone Number'
+        = text_field_tag 'store[phone_number]', "#{@selected_store.phone_number}", :class => 'form-control'
+        = label_tag 'Street'
+        = text_field_tag 'store[street]', "#{@selected_store.street}", :class => 'form-control'
+        = label_tag 'City'
+        = text_field_tag 'store[street]', "#{@selected_store.city}", :class => 'form-control'
+        = label_tag 'Postcode'
+        = text_field_tag 'store[postcode]', "#{@selected_store.postcode}", :class => 'form-control'
+        = label_tag 'Country'
+        = text_field_tag 'store[country]', "#{@selected_store.country}", :class => 'form-control'
+        = label_tag 'State'
+        = text_field_tag 'store[state]', "#{@selected_store.state}", :class => 'form-control'
+        = label_tag 'Facebook URL'
+        = text_field_tag 'store[facebook]', "#{@selected_store.facebook}", :class => 'form-control'
+        = label_tag 'Twitter URL'
+        = text_field_tag 'store[twitter]', "#{@selected_store.twitter}", :class => 'form-control'
+        = label_tag 'Instagram URL'
+        = text_field_tag 'store[instagram]', "#{@selected_store.instagram}", :class => 'form-control'
+        = label_tag 'Youtube URL'
+        = text_field_tag 'store[youtube]', "#{@selected_store.youtube}", :class => 'form-control'
+        = submit_tag nil, class: 'btn btn-success btn-block', id: 'settings-submit-2'
+
+      .flash-errors
+        = flash[:store_success]
+        = flash[:no_change]

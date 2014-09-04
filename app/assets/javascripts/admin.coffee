@@ -6,3 +6,7 @@ $(document).ready ->
     $('#dash-store-select').submit()
   )
 
+  # submitting admin settings views store select input
+  $('#settings-store-select .form-control').on('change', ->
+    $('#settings-store-select').submit()
+  )

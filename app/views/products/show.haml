@@ -1,5 +1,7 @@
 .topbar
-  %p= "Products / #{@product.title}"
+  %p
+    %a{:href => '/admin/products'} Products
+    = "/#{@product.title}"
 .view-container
   #product-image-column
     = image_tag @product.image, :class => 'images-large'

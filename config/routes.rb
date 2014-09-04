@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   post '/admin' => 'admins#dashboard'
   get '/admin/add-staff' => 'admins#add_staff'
   post '/admin/add-staff' => 'admins#post_added_staff'
+  get '/admin/settings' => 'admins#settings', :as => :admin_settings
+  post '/admin/settings' => 'admins#settings'
+  put '/admin/update_settings' => 'admins#update_settings'
 
   # - products - #
   get '/admin/products' => 'products#index'
