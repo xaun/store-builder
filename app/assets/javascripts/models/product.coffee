@@ -1,4 +1,4 @@
 window.app = window.app or {}
 
 app.Product = Backbone.Model.extend
-  urlRoot: '/admin/products'
+  urlRoot: '/products'

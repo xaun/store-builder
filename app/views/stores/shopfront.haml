@@ -1,3 +1,7 @@
+- if @current_admin
+  #admin-nav-bar
+    %a{:href => "/admin"} Back to Dashboard
+
 #store-page-container
   %nav
     #top-main-bar
@@ -16,6 +20,8 @@
   / Cheeky hidden div gets the store_id from the 'stores#shopfront' params[:id].
   / This makes it easy get the store_id from the DOM, and filter my db queries.
   .store_id{:style => 'display: none;'}= @store.id
+
+
 
   / Main view for Backbone rendering.
   #store-main

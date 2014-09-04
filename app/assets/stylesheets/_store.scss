@@ -10,6 +10,16 @@ body {
   background-color: white;
 }
 
+#admin-nav-bar {
+  position: fixed;
+  width: 100%;
+  height: 24px;
+  background-color: #CDCDCF;
+  padding-left: 34px;
+  padding-top: 2px;
+  z-index: 20;
+}
+
 #store-page-container {
   max-width: 94%;
   margin: auto;
@@ -34,14 +44,14 @@ body {
   h1 {
     position: absolute;
     display: inline-block;
-    top: 15px;
+    top: 19px;
     left: 0px;
     padding: 10px 0 0 20px;
     font-size: 3.7em;
 
     @include respond-to(max-width, 780px) {
       position: static;
-      padding: 10px 0 0 10px;
+      padding: 20px 0 0 10px;
     }
   }
 }
@@ -49,14 +59,14 @@ body {
 #top-main-bar-links {
   position: absolute;
   right: 20px;
-  bottom: 0px;
+  bottom: -6px;
   font-size: 20px;
   word-spacing: 60px;
 
   @include respond-to(max-width, 780px) {
     position: static;
     word-spacing: 0px;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   ul {
@@ -79,10 +89,11 @@ body {
   }
 }
 
+
 //----- All products view grid styles ------//
 
-#all-products-view {
-  margin-top: 45px;
+#store-main {
+  margin-top: 35px;
 }
 
 .row {
