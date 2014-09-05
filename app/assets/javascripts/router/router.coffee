@@ -4,6 +4,7 @@ app.Router = Backbone.Router.extend
   routes:
     '': 'index'
     'product/:id': 'viewProduct'
+    'cart': 'viewCart'
 
   initialize: ->
 
@@ -28,20 +29,31 @@ app.Router = Backbone.Router.extend
       allProductsView.render()
 
   viewProduct: (id) ->
-      app.products = new app.Products()
+    app.products = new app.Products()
 
-      # New collection to fetch the data from the server before getting the product from the collection.
-      app.products.fetch({
-        # Need to pass these params to controller for the where A/R query.
-        data: {
-          store_id: $('.store_id').text()
-          visibility: true
-        }
-      }).done ->
-        # Get's the selected product.
-        app.product = app.products.get(id)
-        # Passes the selected product as an object into the productView.
-        productView = new app.ProductView({collection: app.product})
-        productView.render()
+    # New collection to fetch the data from the server before getting the product from the collection.
+    app.products.fetch({
+      # Need to pass these params to controller for the where A/R query.
+      data: {
+        store_id: $('.store_id').text()
+        visibility: true
+      }
+    }).done ->
+      # Get's the selected product.
+      app.product = app.products.get(id)
+      # Passes the selected product as an object into the productView.
+      productView = new app.ProductView({collection: app.product})
+      productView.render()
+
+
+  viewCart: ->
+    cartView = new app.CartView()
+    cartView.render()
+
+
+
+
+
+
 
 

@@ -5,6 +5,9 @@ app.AllProductsView = Backbone.View.extend
   tagName: 'div'
   id: 'all-products-view'
 
+  events:
+    'click #tiles-buy-button': 'itemToCheckout'
+
   initialize: ->
     if app.currentView
       app.currentView.remove()
@@ -34,6 +37,15 @@ app.AllProductsView = Backbone.View.extend
       $('.top-dropdowns').css('width', $tileSize)
       $('.bot-dropdowns').css('width', $tileSize)
     )
+
+  itemToCheckout: (e) ->
+    # Getting the interpolated data value from the products buy-button.
+    $itemID = $(e.target.attributes["data-product-id"]).val()
+    console.log $itemID
+    app.cart.push($itemID)
+    # app.products.get
+
+
 
 
 

@@ -23,6 +23,7 @@ body {
 #store-page-container {
   max-width: 94%;
   margin: auto;
+
   @include respond-to(min-width, 1200px) {
     max-width: 1200px;
   }

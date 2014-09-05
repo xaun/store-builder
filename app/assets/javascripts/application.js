@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require lib/backbone-min
+//= require lib/backbone.localStorage
 //= require handlebars
 //= require jquery-tablesorter
 //= require bootstrap-sprockets
