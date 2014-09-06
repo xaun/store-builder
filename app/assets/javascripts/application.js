@@ -19,4 +19,5 @@
 //= require jquery-tablesorter
 //= require bootstrap-sprockets
 //= require_tree ./models
+//= require_tree ./collections
 //= require_tree .

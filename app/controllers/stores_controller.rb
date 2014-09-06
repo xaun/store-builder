@@ -20,4 +20,9 @@ class StoresController < ApplicationController
       format.json { render :json => @products }
     end
   end
+
+  # def cart
+  #   @object = params
+  #   render :json => @object
+  # end
 end

@@ -47,11 +47,38 @@ app.Router = Backbone.Router.extend
 
 
   viewCart: ->
-    cartView = new app.CartView()
-    cartView.render()
+    app.products = new app.Products()
+    # Fetch associated products using the cheeky hidden div in shopfront.haml
+    # to get the store_id dynamically.
+    app.products.fetch({
+      # The data method is like the 'where' A/R query.
+      data: {
+        # See code & comments in shopfront.haml on div.store_id.
+        store_id: $('.store_id').text()
+        # Query for the item shopfront visibility feature.
+        visibility: true
+      }
+    # the .done function is needed so the data is fetched before the following # code is run.
+    }).done ->
+      _.each app.cart, (product_id) ->
+        product = app.products.get(product_id)
+        this_product_id = product.get('id')
+        product = product.toJSON()
+        product.product_id = this_product_id
+        product.id = (app.cartItems.length + 1)
 
+        app.cartItems.add( product )
+        # app.cartItems.save()
+      # app.cartItems.invoke('save')
 
+      localStorage.setItem('cartItems', JSON.stringify(app.cartItems));
+      cartItemsJSON = localStorage.getItem('cartItems')
+      cartItemsObject = JSON.parse(cartItemsJSON)
+      # debugger;
 
+      app.cart = []
+      cartView = new app.CartView({collection: cartItemsObject})
+      cartView.render()
 
 
 

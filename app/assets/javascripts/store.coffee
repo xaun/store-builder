@@ -3,6 +3,7 @@ $(document).ready ->
   app.templates =
     allProductsView: $('#all-products-template').html()
     productView: $('#product-template').html()
+    cartView: $('#cart-template').html()
 
   app.cart = []
 

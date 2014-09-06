@@ -33,4 +33,7 @@ Rails.application.routes.draw do
   post '/stores/:id' => 'stores#shopfront'
   get '/stores/:id' => 'stores#shopfront', :as => :store
   get '/products' => 'stores#products', :as => :store_product
+
+  put '/cart/:id' => 'stores#cart'
+
 end

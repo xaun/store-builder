@@ -77,8 +77,11 @@
       %h2 {{product.title}}
       %article {{product.description}}
 
+%script{:type => 'text/handlebars-template', :id => 'cart-template'}
 
-
+  {{#each cartItems}}
+  %p {{title}}
+  {{/each}}
 
 
 

@@ -7,4 +7,4 @@ app.CartItemList = Backbone.Collection.extend
 
 
 # Create a global collection of cartItems.
-app.CartItems = new app.CartItemList()
+app.cartItems = new app.CartItemList()
