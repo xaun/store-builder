@@ -17,7 +17,7 @@ app.Router = Backbone.Router.extend
       # The data method is like the 'where' A/R query.
       data: {
         # See code & comments in shopfront.haml on div.store_id.
-        store_id: $('.store_id').text()
+        store_id: app.store_id
         # Query for the item shopfront visibility feature.
         visibility: true
       }
@@ -35,7 +35,7 @@ app.Router = Backbone.Router.extend
     app.products.fetch({
       # Need to pass these params to controller for the where A/R query.
       data: {
-        store_id: $('.store_id').text()
+        store_id: app.store_id
         visibility: true
       }
     }).done ->
@@ -54,12 +54,13 @@ app.Router = Backbone.Router.extend
       # The data method is like the 'where' A/R query.
       data: {
         # See code & comments in shopfront.haml on div.store_id.
-        store_id: $('.store_id').text()
+        store_id: app.store_id
         # Query for the item shopfront visibility feature.
         visibility: true
       }
     # the .done function is needed so the data is fetched before the following # code is run.
     }).done ->
+      app.cartItems = new app.CartItemList()
       _.each app.cart, (product_id) ->
         product = app.products.get(product_id)
         this_product_id = product.get('id')
@@ -71,13 +72,15 @@ app.Router = Backbone.Router.extend
         # app.cartItems.save()
       # app.cartItems.invoke('save')
 
-      storageCheck = localStorage.getItem('cartItems')
+      storageCheck = localStorage.getItem(app.store_id)
 
       # If storageCheck is empty, set cartItems to localStorage.
       unless storageCheck
-        localStorage.setItem('cartItems', JSON.stringify(app.cartItems))
+        cartItemsJSON = JSON.stringify(app.cartItems)
+        localStorage.setItem(app.store_id, cartItemsJSON)
+        app.cartItemsObject = JSON.parse(cartItemsJSON)
       else if app.cartItems.length > 0
-        cartItemsJSON = localStorage.getItem('cartItems')
+        cartItemsJSON = localStorage.getItem(app.store_id)
         newCartItemsJSON = JSON.stringify(app.cartItems)
         newCartItemsObject = JSON.parse(newCartItemsJSON)
         app.cartItemsObject = JSON.parse(cartItemsJSON)
@@ -85,15 +88,15 @@ app.Router = Backbone.Router.extend
         _.each newCartItemsObject, (object) ->
           app.cartItemsObject.push(object)
 
-        localStorage.setItem('cartItems', JSON.stringify(app.cartItemsObject))
+        localStorage.setItem(app.store_id, JSON.stringify(app.cartItemsObject))
       else
-        cartItemsJSON = localStorage.getItem('cartItems')
+        cartItemsJSON = localStorage.getItem(app.store_id)
         app.cartItemsObject = JSON.parse(cartItemsJSON)
 
       app.cart = []
+      app.cartItems = false
       cartView = new app.CartView({collection: app.cartItemsObject})
       cartView.render()
-
 
 
 

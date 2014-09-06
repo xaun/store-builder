@@ -6,7 +6,7 @@ $(document).ready ->
     cartView: $('#cart-template').html()
 
   app.cart = []
-  app.cartItemsObject = []
+  app.store_id = $('.store_id').text()
 
   app.router = new app.Router();
   Backbone.history.start();
