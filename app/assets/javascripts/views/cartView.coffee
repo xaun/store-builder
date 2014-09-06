@@ -20,7 +20,7 @@ app.CartView = Backbone.View.extend
 
   render: ->
     cartView = Handlebars.compile(app.templates.cartView)
-    @$el.html cartView { cartItems: app.cartItems.toJSON() }
+    @$el.html cartView { cartItems: app.cartItemsObject }
     $('#store-main').append @el
 
 
