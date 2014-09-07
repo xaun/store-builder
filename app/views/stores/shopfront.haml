@@ -5,7 +5,8 @@
 #store-page-container
   %nav
     #top-main-bar
-      %h1= @store.store_name
+      %a{:href => "#"}
+        %h1= @store.store_name
       #top-main-bar-links
         %ul
           %li.link-3
@@ -26,18 +27,6 @@
   / Main view for Backbone rendering.
   #store-main
 
-  #footer
-    #social-media
-      - if @store.facebook
-        = link_to(image_tag('fb-48.png', :id => 'facebook'), "#{@store.facebook}", :target => "_blank")
-      - if @store.twitter
-        = link_to(image_tag('twit-48.png', :id => 'twitter'), "#{@store.twitter}", :target => "_blank")
-      - if @store.instagram
-        = link_to(image_tag('insta-48.png', :id => 'instagram'), "#{@store.instagram}", :target => "_blank")
-      - if @store.youtube
-        = link_to(image_tag('tube-48.png', :id => 'youtube'), "#{@store.youtube}", :target => "_blank")
-    #copyright
-      %p= "Copyright #{Time.now.year} © #{@store.legal_business_name}."
 
 
 // ------   BACKBONE TEMPLATES ------ //
@@ -58,15 +47,28 @@
 
       %div{:id => "bot-tile-bar-{{id}}", :class => 'bot-tile-bars'}
         %div{:id => 'tiles-cart-button', :class => 'btn btn-success btn-sm', :data => { :product_id => '{{id}}' }} Add To Cart
-
     {{/each}}
+
+  %footer
+    #social-media
+      - if @store.facebook
+        = link_to(image_tag('fb-48.png', :id => 'facebook'), "#{@store.facebook}", :target => "_blank")
+      - if @store.twitter
+        = link_to(image_tag('twit-48.png', :id => 'twitter'), "#{@store.twitter}", :target => "_blank")
+      - if @store.instagram
+        = link_to(image_tag('insta-48.png', :id => 'instagram'), "#{@store.instagram}", :target => "_blank")
+      - if @store.youtube
+        = link_to(image_tag('tube-48.png', :id => 'youtube'), "#{@store.youtube}", :target => "_blank")
+    #copyright
+      %p= "Copyright #{Time.now.year} © #{@store.legal_business_name}."
+
 
 
 %script{:type => 'text/handlebars-template', :id => 'product-template'}
 
-  #back-bar
-    %a{:href => "#"}
-      %img{:src => "/assets/back-arrow.png"}/
+  / #back-bar
+  /   %a{:href => "#"}
+  /     %img{:src => "/assets/back-arrow.png"}/
   #product-image{:style => "background-image: url(/assets/{{product.image}})"}
   #product-details
     #heading
@@ -80,11 +82,27 @@
 
 %script{:type => 'text/handlebars-template', :id => 'cart-template'}
 
-  {{#each cartItems}}
-  %p {{title}}
-  %div{:id => 'remove-cart-item', :class => 'btn btn-success btn-sm', :data => { :product_id => '{{id}}' }} Remove Item
-  {{/each}}
+  / #back-bar
+  /   %a{:href => "#"}
+  /     %img{:src => "/assets/back-arrow.png"}/
 
+  %table.table
+    %thead
+    %tbody
+      {{#each cartItems}}
+      %tr
+        %td.image-column
+          %a{:href => "#product/{{product_id}}"}
+            %img{:src => "/assets/{{image}}", :width => '100x100'}/
+        %td.title-column
+          %a{:href => "#product/{{product_id}}"} {{title}}
+        %td.price-column
+          ${{price}}.00
+        %td.remove-column
+          %div{:id => 'remove-cart-item', :class => 'btn btn-danger btn-sm', :data => { :product_id => '{{id}}' }} Remove Item
+      {{/each}}
+  #checkout
+    %div{:id => 'checkout-button', :class => 'btn btn-success'} Checkout
 
 
 

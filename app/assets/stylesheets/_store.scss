@@ -37,6 +37,10 @@ body {
   border-bottom: 2px solid black;
   height: 90px;
 
+  a {
+    color: black;
+  }
+
   @include respond-to(max-width, 780px) {
     height: 130px;
     text-align: center;
@@ -100,6 +104,7 @@ body {
 
 .row {
   margin: 0;
+  max-width: 1200px;
 
   #grid-columns {
   position: relative;
@@ -179,10 +184,12 @@ body {
 #product-view {
   position: relative;
   padding: 0px;
+  margin: 0 10px 20px 10px;
 
   #back-bar {
+    padding: 15px 0 20px 0;
     img {
-      padding: 10px;
+      padding-left: 10px;
     }
   }
 
@@ -292,9 +299,43 @@ body {
 
 //----- Cart Styles -----//
 
+#cart-view {
+  margin: 0 10px 20px 10px;
 
+  #back-bar {
+    padding: 15px 0 20px 0;
+    img {
+      padding-left: 10px;
+    }
+  }
 
+  .remove-column {
+    text-align: right;
+  }
+  .title-column {
+    text-align: left;
+    width: 20%
+  }
+  .image-column {
+    text-align: left;
+    width: 23%;
+    img {
+      border-radius: 7px;
+    }
+  }
+  .price-column {
+    text-align: left;
+  }
 
+  #checkout {
+    text-align: right;
+    margin: 0 4px 0 4px;
+
+    #checkout-button {
+      width: 79px;
+    }
+  }
+}
 
 
 
