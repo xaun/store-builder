@@ -34,6 +34,6 @@ Rails.application.routes.draw do
   get '/stores/:id' => 'stores#shopfront', :as => :store
   get '/products' => 'stores#products', :as => :store_product
 
-  put '/cart/:id' => 'stores#cart'
+  # put '/cart/:id' => 'stores#cart'
 
 end

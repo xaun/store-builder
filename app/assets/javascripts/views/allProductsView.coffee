@@ -6,9 +6,10 @@ app.AllProductsView = Backbone.View.extend
   id: 'all-products-view'
 
   events:
-    'click #tiles-buy-button': 'itemToCheckout'
+    'click #tiles-cart-button': 'itemToCart'
 
   initialize: ->
+    # Refreshes the view upon initialize.
     if app.currentView
       app.currentView.remove()
     app.currentView = @
@@ -26,24 +27,26 @@ app.AllProductsView = Backbone.View.extend
 
     $('#store-main').append @el
 
-    # Sets the top & bot dropdowns to the size of the .product-tiles.
+    # Sets the top & bot tile-bars to the size of the .product-tiles.
     $tileSize = $('.product-tiles').css('width')
-    $('.top-dropdowns').css('width', $tileSize)
-    $('.bot-dropdowns').css('width', $tileSize)
+    $('.top-tile-bars').css('width', $tileSize)
+    $('.bot-tile-bars').css('width', $tileSize)
 
-    # Function responsively adjust the top & bot dropdowns.
+    # Function responsively adjust the top & bot tile-bars.
     $(window).on('resize', ->
       $tileSize = $('.product-tiles').css('width')
-      $('.top-dropdowns').css('width', $tileSize)
-      $('.bot-dropdowns').css('width', $tileSize)
+      $('.top-tile-bars').css('width', $tileSize)
+      $('.bot-tile-bars').css('width', $tileSize)
     )
 
-  itemToCheckout: (e) ->
-    # Getting the interpolated data value from the products buy-button.
+  itemToCart: (e) ->
+    # Gets the products id from #tiles-cart-button's :data.
     $itemID = $(e.target.attributes["data-product-id"]).val()
     console.log $itemID
+
+    # Pushes the selected product.id into the app.cart array.
     app.cart.push($itemID)
-    # app.products.get
+
 
 
 

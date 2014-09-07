@@ -60,40 +60,70 @@ app.Router = Backbone.Router.extend
       }
     # the .done function is needed so the data is fetched before the following # code is run.
     }).done ->
+      # Create a new cartItems collection.
       app.cartItems = new app.CartItemList()
+      # Iterate through product id's in the app.cart Array.
       _.each app.cart, (product_id) ->
+        # Get the product from the products collection.
         product = app.products.get(product_id)
+        # Save the product.id.
         this_product_id = product.get('id')
+        # Clone the product by converting it to JSON.
         product = product.toJSON()
+        # Sets the product.id under the new attribute of product.product_id.
         product.product_id = this_product_id
+        # Overwrites product.id with a counter, so every cartItem has a
+        # unique id.
         product.id = (app.cartItems.length + 1)
-
+        # Adds the new product to the cartItems collection.
         app.cartItems.add( product )
       # app.cartItems.invoke('save')
 
+      # Before setting anything to storage & rendering..
+      # Gets all items currently saved in local storage belonging to store_id.
       storageCheck = localStorage.getItem(app.store_id)
 
-      # If storageCheck is empty, set cartItems to localStorage.
+      # If storageCheck is empty, set all cartItems to localStorage.
       unless storageCheck
+        # Save cartItems as a JSON string.
         cartItemsJSON = JSON.stringify(app.cartItems)
+        # Save to localStorage.
         localStorage.setItem(app.store_id, cartItemsJSON)
-        app.cartItemsArray = JSON.parse(cartItemsJSON)
-      else if app.cartItems.length > 0
-        cartItemsJSON = localStorage.getItem(app.store_id)
-        newCartItemsJSON = JSON.stringify(app.cartItems)
-        newCartItemsArray = JSON.parse(newCartItemsJSON)
+        # Save cartItemsJSON string as an Array of objects for rendering.
         app.cartItemsArray = JSON.parse(cartItemsJSON)
 
+      # If app.cartItems collection is NOT empty & storageCheck is NOT empty.
+      else if app.cartItems.length > 0
+        # Get the existing cartItems from localStorage.
+        cartItemsJSON = localStorage.getItem(app.store_id)
+        # Save the new cartItems collection to JSON string.
+        newCartItemsJSON = JSON.stringify(app.cartItems)
+        # Save the new cartItems as an Array of Objects.
+        newCartItemsArray = JSON.parse(newCartItemsJSON)
+        # Save cartItemsJSON as an Array of Objects.
+        app.cartItemsArray = JSON.parse(cartItemsJSON)
+
+        # Iterate through each newCartItemsArray, and push each object into
+        # app.cartItemsArray ready for rendering.
         _.each newCartItemsArray, (object) ->
           app.cartItemsArray.push(object)
 
+        # Overwrite the localStorage hash with the new JSON string of cartItem
+        # objects.
         localStorage.setItem(app.store_id, JSON.stringify(app.cartItemsArray))
+
+      # If storageCheck is empty & app.cartItems is empty.
       else
+        # Get the items from localStorage
         cartItemsJSON = localStorage.getItem(app.store_id)
+        # Save cartItemsJSON as an Array of Objects for rendering.
         app.cartItemsArray = JSON.parse(cartItemsJSON)
 
+      # Clear the app.cart, as all pending products have been added to storage.
       app.cart = []
+      # Clear the app.cartItems collection.
       app.cartItems = false
+      # Render app.cartItemsArray!
       cartView = new app.CartView({collection: app.cartItemsArray})
       cartView.render()
 

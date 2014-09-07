@@ -49,15 +49,15 @@
     // Bootstrap column magic div
     %div{:class => 'col-xs-6 col-md-4', :id => 'grid-columns'}
 
-      %div{:id => "top-dropdown-{{id}}", :class => 'top-dropdowns'}
+      %div{:id => "top-tile-bar-{{id}}", :class => 'top-tile-bars'}
         %span.title {{title}}
         %span.price ${{price}}.00
 
       %a{:href => "#product/{{id}}"}
         .product-tiles{:style => "background-image: url(/assets/{{image}})"}
 
-      %div{:id => "bot-dropdown-{{id}}", :class => 'bot-dropdowns'}
-        %div{:id => 'tiles-buy-button', :data => { :product_id => '{{id}}' }, :class => 'btn btn-success btn-sm'} Add To Cart
+      %div{:id => "bot-tile-bar-{{id}}", :class => 'bot-tile-bars'}
+        %div{:id => 'tiles-cart-button', :class => 'btn btn-success btn-sm', :data => { :product_id => '{{id}}' }} Add To Cart
 
     {{/each}}
 
@@ -71,11 +71,12 @@
   #product-details
     #heading
       %span.price ${{product.price}}.00
-      %a{:href => "#"}
-        %div{:id => 'details-buy-button', :class => 'btn btn-success btn-sm'} Add To Cart
+      %div{:id => 'details-cart-button', :class => 'btn btn-success btn-sm', :data => { :product_id => '{{product.id}}' }} Add To Cart
+
     #description
       %h2 {{product.title}}
       %article {{product.description}}
+
 
 %script{:type => 'text/handlebars-template', :id => 'cart-template'}
 

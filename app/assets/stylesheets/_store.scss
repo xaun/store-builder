@@ -1,5 +1,6 @@
 //----- Page & setup styles -----//
 
+// I use this awesome sass repond-to mixin to pass in all my media queries.
 @mixin respond-to($val, $query) {
   @media ($val: $query) {
     @content;
@@ -155,17 +156,17 @@ body {
   }
 }
 
-.top-dropdowns {
+.top-tile-bars {
   @include product-dropdowns;
   top: 0;
 }
 
-.bot-dropdowns {
+.bot-tile-bars {
   @include product-dropdowns;
   bottom: 0;
 }
 
-#tiles-buy-button {
+#tiles-cart-button {
   position: absolute;
   right: 0px;
   width: 70px;
@@ -239,7 +240,7 @@ body {
         padding-left: 10px;
       }
 
-      #details-buy-button {
+      #details-cart-button {
         position: absolute;
         right: 10px;
         width: 150px;
@@ -289,8 +290,7 @@ body {
 }
 
 
-
-
+//----- Cart Styles -----//
 
 
 

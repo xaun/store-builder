@@ -5,15 +5,16 @@ $(document).ready ->
     productView: $('#product-template').html()
     cartView: $('#cart-template').html()
 
+  # An array of pending product.id's to be added to cart localStorage.
   app.cart = []
+  # Global variable that keeps track of the store_id.
   app.store_id = $('.store_id').text()
 
   app.router = new app.Router();
   Backbone.history.start();
 
-
+# Reminder that I can make global helper objects.
 # app.helpers =
 #   calculate: ->
 
-
-# app.helper.calculate(something)
+# app.helpers.calculate(something)
