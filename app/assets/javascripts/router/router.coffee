@@ -69,7 +69,6 @@ app.Router = Backbone.Router.extend
         product.id = (app.cartItems.length + 1)
 
         app.cartItems.add( product )
-        # app.cartItems.save()
       # app.cartItems.invoke('save')
 
       storageCheck = localStorage.getItem(app.store_id)
@@ -78,24 +77,24 @@ app.Router = Backbone.Router.extend
       unless storageCheck
         cartItemsJSON = JSON.stringify(app.cartItems)
         localStorage.setItem(app.store_id, cartItemsJSON)
-        app.cartItemsObject = JSON.parse(cartItemsJSON)
+        app.cartItemsArray = JSON.parse(cartItemsJSON)
       else if app.cartItems.length > 0
         cartItemsJSON = localStorage.getItem(app.store_id)
         newCartItemsJSON = JSON.stringify(app.cartItems)
-        newCartItemsObject = JSON.parse(newCartItemsJSON)
-        app.cartItemsObject = JSON.parse(cartItemsJSON)
+        newCartItemsArray = JSON.parse(newCartItemsJSON)
+        app.cartItemsArray = JSON.parse(cartItemsJSON)
 
-        _.each newCartItemsObject, (object) ->
-          app.cartItemsObject.push(object)
+        _.each newCartItemsArray, (object) ->
+          app.cartItemsArray.push(object)
 
-        localStorage.setItem(app.store_id, JSON.stringify(app.cartItemsObject))
+        localStorage.setItem(app.store_id, JSON.stringify(app.cartItemsArray))
       else
         cartItemsJSON = localStorage.getItem(app.store_id)
-        app.cartItemsObject = JSON.parse(cartItemsJSON)
+        app.cartItemsArray = JSON.parse(cartItemsJSON)
 
       app.cart = []
       app.cartItems = false
-      cartView = new app.CartView({collection: app.cartItemsObject})
+      cartView = new app.CartView({collection: app.cartItemsArray})
       cartView.render()
 
 

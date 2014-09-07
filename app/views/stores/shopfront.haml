@@ -81,6 +81,7 @@
 
   {{#each cartItems}}
   %p {{title}}
+  %div{:id => 'remove-cart-item', :class => 'btn btn-success btn-sm', :data => { :product_id => '{{id}}' }} Remove Item
   {{/each}}
 
 

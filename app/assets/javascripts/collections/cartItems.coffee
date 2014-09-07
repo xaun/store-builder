@@ -5,6 +5,3 @@ app.CartItemList = Backbone.Collection.extend
 
   # localStorage: new Backbone.LocalStorage('cartItems-backbone')
 
-
-# Create a global collection of cartItems.
-app.cartItems = new app.CartItemList()
