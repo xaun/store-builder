@@ -12,10 +12,12 @@
 #  postcode     :string(255)
 #  country      :string(255)
 #  state        :string(255)
+#  store_id     :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
 #
 
 class Guest < ActiveRecord::Base
   has_many :orders
+  belongs_to :store
 end

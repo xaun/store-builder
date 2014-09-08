@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140908003050) do
     t.string   "postcode"
     t.string   "country"
     t.string   "state"
+    t.string   "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

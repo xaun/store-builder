@@ -33,10 +33,18 @@ Rails.application.routes.draw do
   get '/admin/orders' => 'orders#index', :as => :admin_orders
   get '/admin/orders/:id' => 'orders#show', :as => :admin_order
 
+  # - customers - #
+  # get '/admin/customers' => 'customers#index', :as => :admin_customers
+  # post '/admin/customers' => 'customers#create', :as => :admin_customer
+
   # - stores - #
   post '/stores/:id' => 'stores#shopfront'
   get '/stores/:id' => 'stores#shopfront', :as => :store
   get '/products' => 'stores#products', :as => :store_product
+  get '/guests' => 'stores#guests'
+  post '/guests' => 'stores#guests'
+  get '/orders' => 'stores#orders'
+  post '/orders' => 'stores#orders'
 
 
   # put '/cart/:id' => 'stores#cart'

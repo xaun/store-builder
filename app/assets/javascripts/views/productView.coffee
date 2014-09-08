@@ -10,9 +10,8 @@ app.ProductView = Backbone.View.extend
 
   initialize: ->
     # Refreshes the view upon initialize.
-    if app.currentView
-      app.currentView.remove()
-    app.currentView = @
+    if $('#store-main').html()
+      $('#store-main').empty()
 
 
   render: ->

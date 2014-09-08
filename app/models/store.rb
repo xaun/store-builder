@@ -27,6 +27,7 @@ class Store < ActiveRecord::Base
   has_many :collections
   has_many :orders
   has_many :users
+  has_many :guests
 
   validates :store_name, :presence => true, :uniqueness => true, :length => { :minimum => 2 }, :on => :create
 end

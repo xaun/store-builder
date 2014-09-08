@@ -10,6 +10,7 @@ class CreateGuests < ActiveRecord::Migration
       t.string :postcode
       t.string :country
       t.string :state
+      t.string :store_id
 
       t.timestamps
     end

@@ -5,6 +5,8 @@ app.Router = Backbone.Router.extend
     '': 'index'
     'product/:id': 'viewProduct'
     'cart': 'viewCart'
+    'checkout': 'viewCheckout'
+    'confirm': 'viewConfirmCheckout'
 
   initialize: ->
 
@@ -127,6 +129,27 @@ app.Router = Backbone.Router.extend
       cartView = new app.CartView({collection: app.cartItemsArray})
       cartView.render()
 
+  viewCheckout: ->
+    checkoutView = new app.CheckoutView()
+    checkoutView.render()
 
+  viewConfirmCheckout: ->
+    if app.guest
+      # Gets the guest object from the Backbone Model.
+      guestObject = app.guest.attributes.guest
+      # Save the guest information to localStorage until checkout is complete.
+      guestJSON = JSON.stringify(guestObject)
+      localStorage.setItem('guest', guestJSON)
+    else
+      guestJSON = localStorage.getItem('guest')
+      guestObject = JSON.parse(guestJSON)
 
+    # Gets the cartItems from localStorage.
+    cartItemsJSON = localStorage.getItem(app.store_id)
+    # Saves the cartItems as an Array of Objects.
+    cartItemsArray = JSON.parse(cartItemsJSON)
+
+    # Sends the guest, and the cartItems to the view via options.
+    confirmCheckoutView = new app.ConfirmCheckoutView(model: guestObject, collection: cartItemsArray)
+    confirmCheckoutView.render()
 

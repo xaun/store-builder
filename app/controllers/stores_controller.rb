@@ -21,8 +21,36 @@ class StoresController < ApplicationController
     end
   end
 
+  def guests
+    guest = Guest.create guest_params
+
+    @guests = Guest.all
+    respond_to do |format|
+      format.html {}
+      format.json { render :json => @guests}
+    end
+  end
+
+  def confirm_checkout
+  end
+
   # def cart
   #   @object = params
   #   render :json => @object
   # end
+
+  private
+  def guest_params
+    params.require(:guest).permit(
+      :first_name,
+      :last_name,
+      :email,
+      :phone_number,
+      :street,
+      :city,
+      :postcode,
+      :country,
+      :state
+    )
+  end
 end

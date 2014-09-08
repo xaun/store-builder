@@ -12,6 +12,7 @@
 #  postcode     :string(255)
 #  country      :string(255)
 #  state        :string(255)
+#  store_id     :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
 #

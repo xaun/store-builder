@@ -102,10 +102,46 @@
           %div{:id => 'remove-cart-item', :class => 'btn btn-danger btn-sm', :data => { :product_id => '{{id}}' }} Remove Item
       {{/each}}
   #checkout
-    %div{:id => 'checkout-button', :class => 'btn btn-success'} Checkout
+    %a{:href => "#/checkout"}
+      %div{:id => 'checkout-button', :class => 'btn btn-success'} Checkout
 
 
+%script{:type => 'text/handlebars-template', :id => 'guest-checkout-template'}
 
+  %input{:type => 'text', :id => 'first-name', :placeholder => 'First Name', :autofocus => true}/
+  %input{:type => 'text', :id => 'last-name', :placeholder => 'Last Name'}/
+  %input{:type => 'text', :id => 'email', :placeholder => 'Email'}/
+  %input{:type => 'text', :id => 'phone-number', :placeholder => 'Phone'}/
+  %input{:type => 'text', :id => 'street', :placeholder => 'Street'}/
+  %input{:type => 'text', :id => 'city', :placeholder => 'City'}/
+  %input{:type => 'text', :id => 'postcode', :placeholder => 'Postcode'}/
+  %input{:type => 'text', :id => 'country', :placeholder => 'Country'}/
+  %input{:type => 'text', :id => 'state', :placeholder => 'State'}/
+  %a{:href => "#/confirm"}
+    %div{:id => 'guest-details-button', :class => 'btn btn-success'} Submit
+
+
+%script{:type => 'text/handlebars-template', :id => 'confirm-checkout-template'}
+  %h1 {{cost.total}}
+  %h4 Your Details
+  %ul
+    %li {{guest.first_name}}
+    %li {{guest.last_name}}
+    %li {{guest.email}}
+    %li {{guest.phone_number}}
+    %li {{guest.street}}
+    %li {{guest.city}}
+    %li {{guest.postcode}}
+    %li {{guest.country}}
+    %li {{guest.state}}
+
+  %h4 Items
+  %ul
+  {{#each items}}
+  %li {{title}}
+  %li {{image}}
+  %li {{price}}
+  {{/each}}
 
 
 
