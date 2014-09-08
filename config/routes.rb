@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   # - orders - #
   get '/admin/orders' => 'orders#index', :as => :admin_orders
+  get '/admin/orders/:id' => 'orders#show', :as => :admin_order
 
   # - stores - #
   post '/stores/:id' => 'stores#shopfront'

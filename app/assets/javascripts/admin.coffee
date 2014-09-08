@@ -1,5 +1,6 @@
 $(document).ready ->
   $('#products-show').tablesorter()
+  $('#orders-index').tablesorter()
 
   # submitting admin dashboard views store select input
   $('#dash-store-select .form-control').on('change', ->

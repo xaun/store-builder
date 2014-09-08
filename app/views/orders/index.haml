@@ -1,4 +1,36 @@
 .topbar
   %p Orders
 .view-container
-  %p Hello world
+  %table.tablesorter-default#orders-index
+    %thead
+      %tr
+        %th #
+        %th Store
+        %th Buyer
+        %th Confirmed
+        %th Payment Status
+        %th Completed
+        %th Products
+        %th Total
+    %tbody#tablesort
+    - @stores.each do |store|
+      - store.orders.each do |order|
+        %tr
+          %td= link_to order.id, admin_order_path(order)
+          %td= store.store_name
+          - if order.user_id
+            %td= "#{order.user.first_name} #{order.user.last_name}"
+          - else
+            %td= "#{order.guest.first_name} #{order.guest.last_name}"
+          %td= order.confirmed
+          %td= order.payment_status
+          %td= order.completed
+          %td= order.products.length
+          / Add's up products prices for each order.
+          - order.products.each do |product|
+            - @price_array << product.price.to_f
+          - @total_price = @price_array.inject(0) { |sum, num| sum + num}
+          %td= "$#{@total_price}"
+
+
+
