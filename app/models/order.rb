@@ -5,6 +5,7 @@
 #  id             :integer          not null, primary key
 #  user_id        :integer
 #  store_id       :integer
+#  guest_id       :integer
 #  confirmed      :boolean
 #  payment_status :string(255)
 #  completed      :boolean
@@ -17,4 +18,5 @@ class Order < ActiveRecord::Base
   has_many :order_products
   has_many :products, through: :order_products
   belongs_to :user
+  belongs_to :guest
 end

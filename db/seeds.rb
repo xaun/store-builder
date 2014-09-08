@@ -1,13 +1,19 @@
 Store.destroy_all
 Admin.destroy_all
 Product.destroy_all
+Order.destroy_all
+Guest.destroy_all
 
 
 a1 = Admin.create(:first_name => 'Xaun', :last_name => 'Lopez', :email => 'xaun@mail.com', :password => 'Chicken1', :password_confirmation => 'Chicken1')
 a2 = Admin.create(:first_name => 'Inspector', :last_name => 'Gadget', :email => 'inspector@mail.com', :password => 'Chicken1', :password_confirmation => 'Chicken1')
 
+g1 = Guest.create(:first_name => 'Dave', :last_name => 'footy', :email => 'dave@mail.com', :phone_number => '95461234', :street => '100 Davey ST, Footyville', :postcode => '8008', :country => 'Australia', :state => 'NSW')
+
 s1 = Store.create(:store_name => 'Heaps Of Nikes', :legal_business_name => 'Heaps of Nikes PTY LTD', :facebook => 'https://www.facebook.com/xaun.lopez', :twitter => 'https://twitter.com/XaunLopez', :youtube => 'https://www.youtube.com/channel/UCKXZ1cyf8IcFzlkAUcA_3Wg', :instagram => '#')
 s2 = Store.create(:store_name => 'True Inspector', :legal_business_name => 'True Inspector PTY LTD', :facebook => 'https://www.facebook.com/xaun.lopez', :twitter => 'https://twitter.com/XaunLopez', :youtube => 'https://www.youtube.com/channel/UCKXZ1cyf8IcFzlkAUcA_3Wg', :instagram => '#')
+
+o1 = Order.create(:confirmed => false, :payment_status => 'not paid', :completed => false)
 
 p1 = Product.create(:title => 'Air Max 1', :product_type => 'Shoe', :sku => 'X0001', :quantity => 30, :image => 'maxies01.jpg', :price => 80.00, :visibility => true, :description => "Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.")
 p2 = Product.create(:title => 'Air Max 2', :product_type => 'Shoe', :sku => 'X0002', :quantity => 30, :image => 'maxies02.jpg', :price => 90.00, :visibility => true, :description => "Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.")
@@ -30,6 +36,8 @@ p16 = Product.create(:title => 'Lock Pick Kit', :product_type => 'Stealth', :sku
 # inspector << heaps of nikes << illigal stuff
 a1.stores << s1
 a2.stores << s1 << s2
+o1.guest = g1
+o1.save
 s1.products << p1 << p2 << p3 << p4 << p5 << p6 << p7 << p9 << p10
 s2.products << p12 << p13 << p14 << p15 << p16
 

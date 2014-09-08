@@ -47,6 +47,15 @@ app.AllProductsView = Backbone.View.extend
     # Pushes the selected product.id into the app.cart array.
     app.cart.push($itemID)
 
+    $(e.target).text('Added')
+    setTimeout ->
+      $(e.target).text('Add To Cart')
+    , 3000
+
+
+
+
+
 
 
 

@@ -29,10 +29,14 @@ Rails.application.routes.draw do
   put '/admin/products/:id' => 'products#update'
   delete '/admin/products/:id' => 'products#destroy', :as => :admin_product_delete
 
+  # - orders - #
+  get '/admin/orders' => 'orders#index', :as => :admin_orders
+
   # - stores - #
   post '/stores/:id' => 'stores#shopfront'
   get '/stores/:id' => 'stores#shopfront', :as => :store
   get '/products' => 'stores#products', :as => :store_product
+
 
   # put '/cart/:id' => 'stores#cart'
 

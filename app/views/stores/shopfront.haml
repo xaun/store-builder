@@ -40,7 +40,7 @@
 
       %div{:id => "top-tile-bar-{{id}}", :class => 'top-tile-bars'}
         %span.title {{title}}
-        %span.price ${{price}}.00
+        %span.price ${{price}}
 
       %a{:href => "#product/{{id}}"}
         .product-tiles{:style => "background-image: url(/assets/{{image}})"}
@@ -72,7 +72,7 @@
   #product-image{:style => "background-image: url(/assets/{{product.image}})"}
   #product-details
     #heading
-      %span.price ${{product.price}}.00
+      %span.price ${{product.price}}
       %div{:id => 'details-cart-button', :class => 'btn btn-success btn-sm', :data => { :product_id => '{{product.id}}' }} Add To Cart
 
     #description
@@ -97,7 +97,7 @@
         %td.title-column
           %a{:href => "#product/{{product_id}}"} {{title}}
         %td.price-column
-          ${{price}}.00
+          ${{price}}
         %td.remove-column
           %div{:id => 'remove-cart-item', :class => 'btn btn-danger btn-sm', :data => { :product_id => '{{id}}' }} Remove Item
       {{/each}}
