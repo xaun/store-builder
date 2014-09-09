@@ -1,4 +1,7 @@
-%h2 Add a product
+.topbar
+  %p
+    %a{:href => '/admin/products'} Products
+    %span / new
 
 #new-products-form
   = form_tag '/admin/products', :class => 'form-horizontal' do

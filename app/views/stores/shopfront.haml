@@ -124,69 +124,164 @@
 
 
 %script{:type => 'text/handlebars-template', :id => 'confirm-checkout-template'}
-  %h3 Confirm your order
-  #guest-checkout-details
-    %table.table
-      %thead
-        %tr
-          %th{:colspan => 2} Your Details
-      %tbody
-        %tr
-          %td First Name
-          %td {{guest.first_name}}
-        %tr
-          %td Last Name
-          %td {{guest.last_name}}
-        %tr
-          %td Email
-          %td {{guest.email}}
-        %tr
-          %td Phone Number
-          %td {{guest.phone_number}}
-        %tr
-          %td Address
-          %td {{guest.street}}
-        %tr
-          %td City
-          %td {{guest.city}}
-        %tr
-          %td Postcode
-          %td {{guest.postcode}}
-        %tr
-          %td Country
-          %td {{guest.country}}
-        %tr
-          %td State
-          %td {{guest.state}}
+  #confirm-checkout-container
+    %h3 Confirm your order
+    #guest-checkout-details
+      %table.table
+        %thead
+          %tr
+            %th{:colspan => 2} Your Details
+        %tbody
+          %tr
+            %td First Name
+            %td {{guest.first_name}}
+          %tr
+            %td Last Name
+            %td {{guest.last_name}}
+          %tr
+            %td Email
+            %td {{guest.email}}
+          %tr
+            %td Phone Number
+            %td {{guest.phone_number}}
+          %tr
+            %td Address
+            %td {{guest.street}}
+          %tr
+            %td City
+            %td {{guest.city}}
+          %tr
+            %td Postcode
+            %td {{guest.postcode}}
+          %tr
+            %td Country
+            %td {{guest.country}}
+          %tr
+            %td State
+            %td {{guest.state}}
 
-  #product-checkout-details
-    %table.table
-      %thead
-        %tr
-          %th{:colspan => 3} Your Items
-      %tbody
-        {{#each items}}
-        %tr
-          %td.image-column
-            %img{:src => "/assets/{{image}}", :width => '80x80'}/
-          %td.title-column {{title}}
-          %td.price-column ${{price}}
-        {{/each}}
-        %tr{:style => 'border-top: 2px solid #CDCDCF;'}
-          {{#if items}}
-          %td
-          %td Total
-          %td ${{cost.total}}
-          {{/if}}
 
-  #buttons-container
-    #edit-buttons-container
-      %a{:href => "#/checkout"}
-        %div{:id => 'confirm-checkout-button', :class => 'btn btn-primary'} Edit Details
-      %a{:href => "#/cart"}
-        %div{:id => 'confirm-checkout-button', :class => 'btn btn-primary'} Edit Items
-    #confirm-button-container
-      %div{:id => 'confirm-checkout-button', :class => 'btn btn-success'} Confirm Order
+    #product-checkout-details
+      %table.table
+        %thead
+          %tr
+            %th{:colspan => 3} Your Items
+        %tbody
+          {{#each items}}
+          %tr
+            %td.image-column
+              %img{:src => "/assets/{{image}}", :width => '80x80'}/
+            %td.title-column {{title}}
+            %td.price-column ${{price}}
+          {{/each}}
+          %tr{:style => 'border-top: 2px solid #CDCDCF;'}
+            {{#if items}}
+            %td
+            %td Total
+            %td ${{cost.total}}
+            {{/if}}
+
+    #buttons-container
+      #edit-buttons-container
+        %a{:href => "#/checkout"}
+          %div{:class => 'btn btn-primary'} Edit Details
+        %a{:href => "#/cart"}
+          %div{:class => 'btn btn-primary'} Edit Items
+      #confirm-button-container
+        %div{:id => 'confirm-checkout-button', :class => 'btn btn-success'} Confirm Order
+
+
+  #receipt-view{:style => 'display: none;'}
+    %h3 Order successful!
+    #guest-receipt-details
+      %table.table
+        %thead
+          %tr
+            %th{:colspan => 2} Your Details
+        %tbody
+          %tr
+            %td First Name
+            %td {{guest.first_name}}
+          %tr
+            %td Last Name
+            %td {{guest.last_name}}
+          %tr
+            %td Email
+            %td {{guest.email}}
+          %tr
+            %td Phone Number
+            %td {{guest.phone_number}}
+          %tr
+            %td Address
+            %td {{guest.street}}
+          %tr
+            %td City
+            %td {{guest.city}}
+          %tr
+            %td Postcode
+            %td {{guest.postcode}}
+          %tr
+            %td Country
+            %td {{guest.country}}
+          %tr
+            %td State
+            %td {{guest.state}}
+
+    #seller-receipt-details
+      %table.table
+        %thead
+          %tr
+            %th{:colspan => 2} Seller Details
+        %tbody
+          %tr
+            %td Store Name
+            %td= @store.store_name
+          %tr
+            %td Business Name
+            %td= @store.legal_business_name
+          %tr
+            %td Phone Number
+            %td= @store.phone_number
+          %tr
+            %td Address
+            %td= @store.street
+          %tr
+            %td City
+            %td= @store.city
+          %tr
+            %td Postcode
+            %td= @store.postcode
+          %tr
+            %td State
+            %td= @store.state
+          %tr
+            %td Country
+            %td= @store.country
+
+
+    #product-receipt-details
+      %table.table
+        %thead
+          %tr
+            %th{:colspan => 3} Purchased Items
+        %tbody
+          {{#each items}}
+          %tr
+            %td.image-column
+              %img{:src => "/assets/{{image}}", :width => '80x80'}/
+            %td.title-column {{title}}
+            %td.price-column ${{price}}
+          {{/each}}
+          %tr{:style => 'border-top: 2px solid #CDCDCF;'}
+            {{#if items}}
+            %td
+            %td Total
+            %td ${{cost.total}}
+            {{/if}}
+
+    #receipt-buttons-container
+      %a{:href => "#"}
+        %div{:class => 'btn btn-primary'} Back to store
 
 
 

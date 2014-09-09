@@ -1,5 +1,7 @@
 .topbar
   %p Products
+  %a{:href => "/admin/products/new"}
+    %div{:id => 'add-product-button', :class => 'btn btn-primary'} Add Product
 .view-container
   %table.tablesorter-default#products-show
     %thead
@@ -26,4 +28,5 @@
           - else
             %td Hidden
 
-  = link_to('Add product', admin_products_new_path)
+
+

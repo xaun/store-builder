@@ -394,11 +394,39 @@ body {
       padding-bottom: 40px;
     }
   }
+
+  //----- checkout receipt view -----//
+
+  .percent-width {
+    display: inline-block;
+    width: 49%;
+    margin: 0 20px 0 0;
+  }
+
+  #seller-receipt-details {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+  }
+
+  #receipt-view {
+    margin: 0 20px;
+    h3 {
+      margin: 0px;
+    }
+  }
+
+  #product-receipt-details {
+    // margin: 0 20px;
+
+    img {
+      border-radius: 7px;
+    }
+  }
+  #receipt-buttons-container {
+    margin-bottom: 40px;
+  }
 }
-
-
-
-
 
 
 

@@ -33,5 +33,13 @@
   padding: 20px 20px 40px 20px;
 }
 
+#settings-submit-1 {
+  margin-top: 15px;
+}
+
+#settings-submit-2 {
+  @extend #settings-submit-1
+}
+
 
 

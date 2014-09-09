@@ -1,5 +1,9 @@
 .topbar
-  %p= "Products / #{@product.title} / edit"
+  %p
+    %a{:href => '/admin/products'} Products /
+    %a{:href => "/admin/products/#{@product.id}"}
+      = "#{@product.title}"
+    %span / edit
 
 #edit-products-form
   = form_tag("/admin/products/#{@product.id}", method: :put, :class => 'form-horizontal') do

@@ -31,7 +31,7 @@ class StoresController < ApplicationController
   end
 
   def confirm_checkout
-
+    @store = Store.find(params[:order][:store_id])
     @order = Order.new order_params
     # Searching for the guest that matches the params send from Backbone.
     @guest = Guest.where params[:order][:guest]

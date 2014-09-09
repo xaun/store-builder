@@ -16,7 +16,8 @@
     - @stores.each do |store|
       - store.orders.each do |order|
         %tr
-          %td= link_to order.id, admin_order_path(order)
+          / %td= link_to order.id, admin_order_path(order)
+          %td= order.id
           %td= store.store_name
           - if order.user_id
             %td= "#{order.user.first_name} #{order.user.last_name}"

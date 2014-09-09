@@ -55,6 +55,10 @@ app.ConfirmCheckoutView = Backbone.View.extend
     # Clear the current html information and show a completed order form using app.order.id as the customer order number for seller enquiries.
     # get store information and guest information and render a receipt like page.
 
+    $('#confirm-checkout-container').hide()
+    $('#guest-receipt-details').attr('class', 'percent-width')
+    $('#receipt-view').show()
+
 
 
 

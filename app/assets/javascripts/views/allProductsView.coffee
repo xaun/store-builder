@@ -49,7 +49,7 @@ app.AllProductsView = Backbone.View.extend
     $(e.target).text('Added')
     setTimeout ->
       $(e.target).text('Add To Cart')
-    , 3000
+    , 800
 
 
 

@@ -28,8 +28,20 @@
   }
 }
 
-.btn {
-    margin-top: 10px !important;
+#details-cart-button {
+  margin-top: 10px;
+}
+
+#new-submit {
+  margin: 15px 0;
+}
+
+
+#add-product-button {
+  position: absolute;
+  margin-top: 10px;
+  right: 0;
+  top: 0;
 }
 
 #products-show {
@@ -39,11 +51,11 @@
   }
 
   td {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   tr th {
-    font-size: 1.6em !important;
+    font-size: 1.5em !important;
   }
 }
 
