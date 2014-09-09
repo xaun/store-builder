@@ -27,10 +27,12 @@
           %td= order.completed
           %td= order.products.length
           / Add's up products prices for each order.
+          - @price_array = []
           - order.products.each do |product|
             - @price_array << product.price.to_f
           - @total_price = @price_array.inject(0) { |sum, num| sum + num}
           %td= "$#{@total_price}"
+          - @price_array = []
 
 
 

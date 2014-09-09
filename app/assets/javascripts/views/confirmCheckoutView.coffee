@@ -36,10 +36,6 @@ app.ConfirmCheckoutView = Backbone.View.extend
 
     $('#store-main').append @el
 
-    # $('#confirm-checkout-button').on('click', =>
-    #   @createOrder()
-    # )
-
   createOrder: ->
     app.order = new app.Order()
 
@@ -52,6 +48,9 @@ app.ConfirmCheckoutView = Backbone.View.extend
         'completed': true
         'items': @items
     )
+
+    # clear cart localStorage.
+    localStorage.removeItem(app.store_id)
 
     # Clear the current html information and show a completed order form using app.order.id as the customer order number for seller enquiries.
     # get store information and guest information and render a receipt like page.

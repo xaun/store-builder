@@ -15,7 +15,7 @@ app.CheckoutView = Backbone.View.extend
 
   render: ->
     checkoutView = Handlebars.compile(app.templates.checkoutView)
-    @$el.html checkoutView()
+    @$el.html checkoutView { guest: app.guestObject }
     $('#store-main').append @el
 
   createGuest: ->

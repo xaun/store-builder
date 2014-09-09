@@ -7,8 +7,6 @@ class OrdersController < ApplicationController
     else
       # View uses @stores to iterate through each store and store.products.
       @stores = @current_admin[0].stores
-      # View code pushes product prices and then runs inject on this array.
-      @price_array = []
     end
   end
 

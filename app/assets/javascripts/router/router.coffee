@@ -130,7 +130,13 @@ app.Router = Backbone.Router.extend
       cartView.render()
 
   viewCheckout: ->
-    checkoutView = new app.CheckoutView()
+    if localStorage['guest']
+      guestJSON = localStorage.getItem('guest')
+      app.guestObject = JSON.parse(guestJSON)
+      checkoutView = new app.CheckoutView({model: app.guestObject})
+    else
+      checkoutView = new app.CheckoutView()
+
     checkoutView.render()
 
   viewConfirmCheckout: ->
