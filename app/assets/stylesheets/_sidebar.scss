@@ -1,17 +1,18 @@
 //----- Styles for the sidebar through /admin -----//
 #sidebar {
-  background-color: #403E3F;
+  background-color: #E0DDDA;
   position: fixed;
   height: 100%;
   width: 19%;
-  border-right: 3.5px solid #E0E0E0;
+  border-right: 2px solid #403F3E;
   list-style: none;
-  font-size: 1.7em;
+  font-size: 1.5em;
   li {
-    padding-left: 15px;
-    padding-top: 10px;
-    border-bottom: 1px solid #dddddd;
+    color: black;
+    padding: 12px 0 12px 20px;
+    // border-bottom: 1px solid #dddddd;
   }
   li:hover {
+    background-color: #4D8AE5;
   }
 }

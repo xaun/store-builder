@@ -10,13 +10,20 @@
     #main-container{:class => @main_container_selector}
       - if @sidebar_reveal
         #sidebar
-          %li= link_to('Dashboard', admin_path)
-          %li= link_to('Orders', admin_orders_path)
-          %li= link_to('Customers', '#')
-          %li= link_to('Products', admin_products_path)
-          %li= link_to('Collections', '#')
-          %li= link_to('Settings', admin_settings_path)
-          %li= link_to('Logout', logout_path, :data => {:method => :delete})
+          = link_to(admin_path) do
+            %li Dashboard
+          = link_to(admin_orders_path) do
+            %li Orders
+          = link_to('#') do
+            %li Customers
+          = link_to(admin_products_path) do
+            %li Products
+          = link_to('#') do
+            %li Collections
+          = link_to(admin_settings_path) do
+            %li Settings
+          = link_to(logout_path, :data => {:method => :delete}) do
+            %li Logout
       #yield{:class => @sidebar_reveal}
         = yield
 
