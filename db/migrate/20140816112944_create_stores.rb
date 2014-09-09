@@ -3,7 +3,7 @@ class CreateStores < ActiveRecord::Migration
     create_table :stores do |t|
       t.string :store_name
       t.string :homepage_title
-      t.string :homepage_meta_description
+      t.string :shopfront_description
       t.string :legal_business_name
       t.string :phone_number
       t.string :street
@@ -15,6 +15,7 @@ class CreateStores < ActiveRecord::Migration
       t.string :twitter
       t.string :instagram
       t.string :youtube
+      t.text :about
 
       t.timestamps
     end

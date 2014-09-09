@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20140908003050) do
   create_table "stores", force: true do |t|
     t.string   "store_name"
     t.string   "homepage_title"
-    t.string   "homepage_meta_description"
+    t.string   "shopfront_description"
     t.string   "legal_business_name"
     t.string   "phone_number"
     t.string   "street"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20140908003050) do
     t.string   "twitter"
     t.string   "instagram"
     t.string   "youtube"
+    t.text     "about"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
