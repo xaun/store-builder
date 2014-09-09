@@ -7,12 +7,14 @@
     #top-main-bar
       %a{:href => "#"}
         %h1= @store.store_name
+      %div
+        %h4= @store.shopfront_description
       #top-main-bar-links
         %ul
           %li.link-3
-            %a{:href => "#"} About
+            %a{:href => "#/about"} About
           %li.link-2
-            %a{:href => "#"} Contact
+            %a{:href => "#/contact"} Contact
           %li.link-1
             %a{:href => "#/cart"} Cart
 

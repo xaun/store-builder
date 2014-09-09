@@ -171,6 +171,8 @@ class AdminsController < ApplicationController
   def store_params
     params.require(:store).permit(
       :store_name,
+      :homepage_title,
+      :shopfront_description,
       :legal_business_name,
       :phone_number,
       :street,
@@ -181,7 +183,8 @@ class AdminsController < ApplicationController
       :facebook,
       :twitter,
       :instagram,
-      :youtube
+      :youtube,
+      :about
     )
   end
 

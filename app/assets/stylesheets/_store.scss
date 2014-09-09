@@ -35,15 +35,31 @@ body {
 #top-main-bar {
   position: relative;
   border-bottom: 2px solid black;
-  height: 90px;
+  height: 108px;
 
   a {
     color: black;
   }
 
   @include respond-to(max-width, 780px) {
-    height: 130px;
+    height: 146px;
     text-align: center;
+  }
+
+  h4 {
+    display: inline-block;
+    position: absolute;
+    left: 150px;
+    top: 74px;
+    color: grey;
+
+    @include respond-to(max-width, 780px) {
+      display: block;
+      position: static;
+      top: 69px;
+      padding: 0;
+      margin: 0;
+    }
   }
 
 
@@ -52,7 +68,7 @@ body {
     display: inline-block;
     top: 19px;
     left: 0px;
-    padding: 10px 0 0 20px;
+    padding: 10px 0 0 10px;
     font-size: 3.7em;
 
     @include respond-to(max-width, 780px) {
