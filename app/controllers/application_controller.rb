@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   # Adds the class of 'store-main-container' to the div#main-container
   # when within the stores_controller.
   def main_container_selector
-    if session[:admin_id] && params[:controller] == 'stores'
+    if params[:controller] == 'stores'
       @main_container_selector = 'store-main-container'
     else
       @main_container_selector = false
