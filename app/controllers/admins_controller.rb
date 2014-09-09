@@ -75,20 +75,23 @@ class AdminsController < ApplicationController
 
       # Store products analytics
       @selected_store.products.each do |product|
+        if product.quantity && product.price
+          sum = product.quantity * product.price
 
-        sum = product.quantity * product.price
+          @gross_array << sum
+          @price_array << product.price
+          @inventory_array << product.quantity
+        end
 
-        @gross_array << sum
-        @price_array << product.price
-        @inventory_array << product.quantity
-
-        if product.visibility == false
+        if product.visibility && product.visibility == false
           @hidden_items_array << product
         end
       end
 
-      @gross_array.inject do |sum, x|
-        @gross_income = sum + x
+      unless @gross_array.blank?
+        @gross_array.inject do |sum, x|
+          @gross_income = sum + x
+        end
       end
     end
   end
