@@ -5,8 +5,8 @@ app.ConfirmCheckoutView = Backbone.View.extend
   tagName: 'div'
   id: 'confirm-checkout-view'
 
-  event:
-    '': 'createOrder'
+  events:
+    'click #confirm-checkout-button': 'createOrder'
 
   initialize: (options) ->
     # Refreshes the view upon initialize.
@@ -36,6 +36,31 @@ app.ConfirmCheckoutView = Backbone.View.extend
 
     $('#store-main').append @el
 
+    # $('#confirm-checkout-button').on('click', =>
+    #   @createOrder()
+    # )
+
   createOrder: ->
+    app.order = new app.Order()
+
+    app.order.save(
+      order:
+        'store_id': $('.store_id').text()
+        'guest': @guest
+        'confirmed': true
+        'payment_status': 'paid'
+        'completed': true
+        'items': @items
+    )
+
+    # Clear the current html information and show a completed order form using app.order.id as the customer order number for seller enquiries.
+    # get store information and guest information and render a receipt like page.
+
+
+
+
+
+
+
 
 

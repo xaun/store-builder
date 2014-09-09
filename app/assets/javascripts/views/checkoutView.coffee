@@ -33,6 +33,7 @@ app.CheckoutView = Backbone.View.extend
         'postcode': $('#postcode').val()
         'country': $('#country').val()
         'state': $('#state').val()
+        'store_id': $('.store_id').text()
     })
 
 

@@ -21,10 +21,9 @@ class StoresController < ApplicationController
     end
   end
 
-  def guests
-    guest = Guest.create guest_params
+  def create_guest
+    @guest = Guest.create guest_params
 
-    @guests = Guest.all
     respond_to do |format|
       format.html {}
       format.json { render :json => @guests}
@@ -32,6 +31,31 @@ class StoresController < ApplicationController
   end
 
   def confirm_checkout
+
+    @order = Order.new order_params
+    # Searching for the guest that matches the params send from Backbone.
+    @guest = Guest.where params[:order][:guest]
+    # Associate the guest account with the order.
+    @order.guest = @guest[0]
+
+    # Iterate & push the product_id from each of the order_products.
+    order_products_array = []
+    params[:order][:items].each do |item|
+      order_products_array << item["product_id"]
+    end
+
+    # Search products database for each id and associate with the order.
+    order_products_array.each do |product_id|
+      @order.products << Product.find(product_id)
+    end
+
+    @order.save
+
+    respond_to do |format|
+      format.html {}
+      format.json { render :json => @order }
+    end
+
   end
 
   # def cart
@@ -50,7 +74,19 @@ class StoresController < ApplicationController
       :city,
       :postcode,
       :country,
-      :state
+      :state,
+      :store_id
+    )
+  end
+
+  def order_params
+    params.require(:order).permit(
+      :user_id,
+      :store_id,
+      :guest_id,
+      :confirmed,
+      :payment_status,
+      :completed
     )
   end
 end
