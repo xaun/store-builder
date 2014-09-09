@@ -2,8 +2,6 @@
   #topbar
     %h1 Store Builder
     = link_to('login', login_path, :class => 'link')
-    %p Sign up
-
 
   #account-create
     - if (@admin && @admin.errors.any?) || (@store && @store.errors.any?)
@@ -30,3 +28,9 @@
       /   - if @store
       /     - if @store.errors.any?
       /       = @store.errors.full_messages
+  #spacer
+  #home-centre
+    %h1 Build your own online store.
+
+
+

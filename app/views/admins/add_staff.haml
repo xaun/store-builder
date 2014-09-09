@@ -9,4 +9,4 @@
         = select_tag("store[store_id]", options_for_select(@stores_array, @store_id), :class => 'form-control')
         = submit_tag 'Search', class: 'btn btn-success btn-block'
 
-    = link_to 'Back', '/admin', :class => 'btn btn-primary'
+    = link_to 'Back', '/admin', :id => 'add-staff-back-button', :class => 'btn btn-primary btn-block'
