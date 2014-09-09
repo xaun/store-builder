@@ -7,6 +7,8 @@ app.Router = Backbone.Router.extend
     'cart': 'viewCart'
     'checkout': 'viewCheckout'
     'confirm': 'viewConfirmCheckout'
+    'about': 'viewAbout'
+    'contact': 'viewContact'
 
   initialize: ->
 
@@ -158,4 +160,16 @@ app.Router = Backbone.Router.extend
     # Sends the guest, and the cartItems to the view via options.
     confirmCheckoutView = new app.ConfirmCheckoutView(model: guestObject, collection: cartItemsArray)
     confirmCheckoutView.render()
+
+  viewAbout: ->
+    aboutView = new app.AboutView()
+    aboutView.render()
+
+  viewContact: ->
+    contactView = new app.ContactView()
+    contactView.render()
+
+
+
+
 

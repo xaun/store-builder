@@ -6,6 +6,8 @@ $(document).ready ->
     cartView: $('#cart-template').html()
     checkoutView: $('#guest-checkout-template').html()
     confirmCheckoutView: $('#confirm-checkout-template').html()
+    aboutView: $('#about-template').html()
+    contactView: $('#contact-template').html()
 
   # An array of pending product.id's to be added to cart localStorage.
   app.cart = []

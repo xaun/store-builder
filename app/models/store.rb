@@ -7,6 +7,7 @@
 #  homepage_title        :string(255)
 #  shopfront_description :string(255)
 #  legal_business_name   :string(255)
+#  seller_email          :string(255)
 #  phone_number          :string(255)
 #  street                :string(255)
 #  city                  :string(255)

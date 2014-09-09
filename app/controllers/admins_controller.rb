@@ -174,6 +174,7 @@ class AdminsController < ApplicationController
       :homepage_title,
       :shopfront_description,
       :legal_business_name,
+      :seller_email,
       :phone_number,
       :street,
       :city,

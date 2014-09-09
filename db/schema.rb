@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20140908003050) do
     t.string   "homepage_title"
     t.string   "shopfront_description"
     t.string   "legal_business_name"
+    t.string   "seller_email"
     t.string   "phone_number"
     t.string   "street"
     t.string   "city"

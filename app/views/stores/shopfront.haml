@@ -286,6 +286,39 @@
         %div{:class => 'btn btn-primary'} Back to store
 
 
+%script{:type => 'text/handlebars-template', :id => 'about-template'}
+
+  %h3 About us..
+  %p= @store.about
+
+
+%script{:type => 'text/handlebars-template', :id => 'contact-template'}
+
+  %h3 Contact Information..
+  %table.table
+    %thead
+    %tbody
+      %tr
+        %td Email
+        %td= @store.seller_email
+      %tr
+        %td Phone
+        %td= @store.phone_number
+      %tr
+        %td Street
+        %td= @store.street
+      %tr
+        %td City
+        %td= @store.city
+      %tr
+        %td Country
+        %td= @store.country
+      %tr
+        %td State
+        %td= @store.state
+
+
+
 
 
 
