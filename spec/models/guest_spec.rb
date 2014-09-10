@@ -18,6 +18,9 @@
 
 require 'rails_helper'
 
-RSpec.describe Guests, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Guest, :type => :model do
+
+  # ----- Associations ------ #
+  it { is_expected.to belong_to(:store) }
+  it { is_expected.to have_many(:orders) }
 end
