@@ -19,6 +19,7 @@ app.ProductView = Backbone.View.extend
     # JSON Object of the selected product passed into this.el as html.
     @$el.html productView { product: app.product.toJSON() }
     $('#store-main').append @el
+    $(window).scrollTop('#product-view')
 
   itemToCart: (e) ->
     # Gets the products id from #details-cart-button's :data.
