@@ -45,7 +45,8 @@
         %span.price ${{price}}
 
       %a{:href => "#product/{{id}}"}
-        .product-tiles{:style => "background-image: url(/assets/{{image}})"}
+        .product-tiles{:style => "background-image: url({{image}})"}
+
 
       %div{:id => "bot-tile-bar-{{id}}", :class => 'bot-tile-bars'}
         %div{:id => 'tiles-cart-button', :class => 'btn btn-success btn-sm', :data => { :product_id => '{{id}}' }} Add To Cart
@@ -71,7 +72,7 @@
   / #back-bar
   /   %a{:href => "#"}
   /     %img{:src => "/assets/back-arrow.png"}/
-  #product-image{:style => "background-image: url(/assets/{{product.image}})"}
+  #product-image{:style => "background-image: url({{product.image}})"}
   #product-details
     #heading
       %span.price ${{product.price}}
@@ -96,7 +97,7 @@
       %tr
         %td.image-column
           %a{:href => "#product/{{product_id}}"}
-            %img{:src => "/assets/{{image}}", :width => '100x100'}/
+            %img{:src => "{{image}}", :width => '100x100'}/
         %td.title-column
           %a{:href => "#product/{{product_id}}"} {{title}}
         %td.price-column
@@ -172,7 +173,7 @@
           {{#each items}}
           %tr
             %td.image-column
-              %img{:src => "/assets/{{image}}", :width => '80x80'}/
+              %img{:src => "{{image}}", :width => '80x80'}/
             %td.title-column {{title}}
             %td.price-column ${{price}}
           {{/each}}
@@ -270,7 +271,7 @@
           {{#each items}}
           %tr
             %td.image-column
-              %img{:src => "/assets/{{image}}", :width => '80x80'}/
+              %img{:src => "{{image}}", :width => '80x80'}/
             %td.title-column {{title}}
             %td.price-column ${{price}}
           {{/each}}
